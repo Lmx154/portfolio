@@ -47,3 +47,23 @@ html {
   transition: opacity 1s ease-in-out;
   z-index: 0;
 }
+
+.gradient-text {
+  background: linear-gradient(90deg, #9c9c9c, #4a4a4a, #9c9c9c);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-rotate 10s ease-in-out infinite;
+}
+
+@keyframes gradient-rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
