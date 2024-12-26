@@ -1,11 +1,15 @@
 import './index.css'
+import Home from './pages/Home'
+import Projects from './pages/Projects' // Import Projects component
 
 function App() {
 
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <div className="flex flex-col">
+      <Home />
+      <Projects /> {/* Render Projects component */}
+      {/* Add more sections here if needed */}
+    </div>
   )
 
 }

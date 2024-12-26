@@ -304,11 +304,11 @@ export default {
     },
     fontFamily: {
       sans: [
+        '"Segoe UI Emoji"',
+        '"Apple Color Emoji"', // Added to prioritize emoji font
         'ui-sans-serif',
         'system-ui',
         'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
         '"Segoe UI Symbol"',
         '"Noto Color Emoji"',
       ],
@@ -595,6 +595,18 @@ export default {
           transform: 'none',
           animationTimingFunction: 'cubic-bezier(0,0,0.2,1)',
         },
+      },
+      wave: {
+        '0%, 100%': { color: 'rgb(156, 156, 156)' },
+        '50%': { color: 'rgb(100, 100, 100)' },
+      },
+      typing: {
+        '0%': { width: '0ch' },
+        '100%': { width: '21ch' },
+      },
+      blink: {
+        '0%, 100%': { borderColor: 'transparent' },
+        '50%': { borderColor: 'black' },
       },
     },
     letterSpacing: {
@@ -1059,6 +1071,37 @@ export default {
       30: '30',
       40: '40',
       50: '50',
+    },
+    extend: {
+      keyframes: {
+        wave: {
+          '0%, 100%': { color: 'rgb(156, 156, 156)' },
+          '50%': { color: 'rgb(100, 100, 100)' },
+        },
+        typing: {
+          '0%': { width: '0ch' },
+          '100%': { width: '21ch' },
+        },
+        blink: {
+          '0%, 100%': { borderColor: 'transparent' },
+          '50%': { borderColor: 'black' },
+        },
+      },
+      animation: {
+        wave: 'wave 3s ease-in-out infinite',
+        typing: 'typing 2s steps(21) forwards',
+        blink: 'blink 0.5s step-end infinite',
+        'typing-blink': 'typing 2s steps(21) forwards, blink 0.5s step-end infinite',
+      },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            '.typewriter-cursor': {
+              // Additional Tailwind classes if needed
+            },
+          },
+        },
+      }),
     },
   },
   plugins: [],
