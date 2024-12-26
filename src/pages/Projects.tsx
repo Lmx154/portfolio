@@ -11,7 +11,7 @@ const Projects = () => {
             description="Brief description of the project."
             link="https://rocketcs.web.app/"
             labels={['React', 'TypeScript', 'Tailwind']}
-            image="src\assets\rocketGame.png"
+            image="/rocketGame.png"
           />
           {/* Add more project cards as needed */}
         </div>

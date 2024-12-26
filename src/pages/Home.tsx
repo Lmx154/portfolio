@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <img
-        src="src\assets\profile.jpg"
+        src="/profile.jpg"
         alt="Portrait"
         className="w-48 h-48 rounded-full object-cover drop-shadow-lg fading-mask"
       />
