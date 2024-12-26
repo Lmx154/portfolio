@@ -6,11 +6,7 @@ body {
   @apply font-sans;
   margin: 0;
   min-height: 100vh;
-  background-image: url('../background.svg'), linear-gradient(to bottom, #000000, #000000);
-  background-size: 800px 800px, cover;
-  background-repeat: repeat, no-repeat;
-  background-attachment: fixed;
-  color: rgb(156, 156, 156); /* Added to set default text color */
+  color: rgb(156, 156, 156);
 }
 
 html, #root {
@@ -24,60 +20,32 @@ html {
 
 #root {
   position: relative;
+  min-height: 100vh;
+  background-color: #000000;
+  background-image: url('/1.svg'), linear-gradient(to bottom, #000000, #000000);
+  background-size: 800px 800px, cover;
+  background-position: center center, center;
+  background-repeat: repeat, no-repeat;
+  background-attachment: fixed;
 }
+
+/* Optionally toggle a class to switch to the second wallpaper */
+#root.alt-wallpaper {
+  background-image: url('/2.svg'), linear-gradient(to bottom, #000000, #000000);
+}
+
+/* Remove pseudo-elements and keyframes: */
+#root::before,
+#root::after {
+  /* No animations, just static content or none at all */
+  content: none;
+}
+
+/* Remove or comment out the fadeInOut keyframes */
+
 
 .fading-mask {
   mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0) 80%);
   -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0) 80%);
 }
 
-.custom-cursor {
-  display: inline-block;
-  width: 2px;
-  background-color: rgb(156, 156, 156);
-  animation: blink 1s step-start infinite;
-}
-
-@keyframes blink {
-  0%, 50% {
-    opacity: 1;
-  }
-  50.01%, 100% {
-    opacity: 0;
-  }
-}
-
-/* Customize the Typewriter cursor */
-.typewriter-cursor {
-  /* Remove existing styles */
-  background-color: transparent;
-  animation: none;
-}
-
-/* Block Cursor Style */
-.block-cursor {
-  display: inline-block;
-  width: 10px; /* Adjust width as needed */
-  height: 1em;
-  background-color: rgb(156, 156, 156);
-  animation: block-blink 1s step-start infinite;
-}
-
-@keyframes block-blink {
-  0%, 50% {
-    opacity: 1;
-  }
-  50.01%, 100% {
-    opacity: 0;
-  }
-}
-
-/* Apply the block cursor to the Typewriter component */
-.ReactSimpleTypewriter__cursor {
-  display: inline-block;
-  width: 1em; /* Match the height of the text */
-  height: 1em;
-  background-color: rgb(156, 156, 156);
-  animation: block-blink 1s step-start infinite;
-  margin-left: 2px; /* Adjust spacing as needed */
-}
