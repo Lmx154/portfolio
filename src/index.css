@@ -29,23 +29,21 @@ html {
   background-attachment: fixed;
 }
 
-/* Optionally toggle a class to switch to the second wallpaper */
-#root.alt-wallpaper {
-  background-image: url('/2.svg'), linear-gradient(to bottom, #000000, #000000);
-}
-
-/* Remove pseudo-elements and keyframes: */
-#root::before,
-#root::after {
-  /* No animations, just static content or none at all */
-  content: none;
-}
-
-/* Remove or comment out the fadeInOut keyframes */
-
-
 .fading-mask {
   mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0) 80%);
   -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0) 80%);
 }
 
+.fade-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-size: 800px 800px, cover;
+  background-repeat: repeat, no-repeat;
+  background-attachment: fixed;
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
+}
