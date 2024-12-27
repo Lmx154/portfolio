@@ -12,7 +12,7 @@ const getLabelColors = (label: string) => {
     'JavaScript': { bg: 'bg-yellow-500/20', text: 'text-yellow-300', border: 'border-yellow-500/30' },
     'TypeScript': { bg: 'bg-blue-500/20', text: 'text-blue-300', border: 'border-blue-500/30' },
     'Rust': { bg: 'bg-orange-500/20', text: 'text-orange-300', border: 'border-orange-500/30' },
-    'Python': { bg: 'bg-green-500/20', text: 'text-green-300', border: 'border-green-500/30' },
+    'Python': { bg: 'bg-gradient-to-r from-blue-500/20 to-yellow-500/20', text: 'text-yellow-300', border: 'border-blue-500/30' },
     'Tailwind': { bg: 'bg-teal-500/20', text: 'text-teal-300', border: 'border-teal-500/30' },
     'Node.js': { bg: 'bg-emerald-500/20', text: 'text-emerald-300', border: 'border-emerald-500/30' },
   };

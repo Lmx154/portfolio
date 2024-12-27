@@ -10,8 +10,26 @@ const Projects = () => {
             title="Rocket Game"
             description="Brief description of the project."
             link="https://rocketcs.web.app/"
-            labels={['React', 'TypeScript', 'Tailwind']}
+            labels={['Flutter', 'Dart', 'C#', 'ASP.NET', 'SQL', 'Postgres']}
             image="/rocketGame.png"
+          />
+          <ProjectTile
+            title="TATM"
+            description="Reverse engineered testing module for UTRGV rocket club's telemetry software"
+            link="#"
+            labels={['Python', 'Embedded']}
+          />
+          <ProjectTile
+            title="TDAS-GUI"
+            description="Description of the TDAS-GUI project."
+            link="#"
+            labels={['Rust', 'Tauri', 'JavaScript', 'React']}
+          />
+          <ProjectTile
+            title="Portfolio Site"
+            description="This portfolio site showcasing my projects."
+            link="#"
+            labels={['TypeScript', 'React', 'Tailwind']}
           />
           {/* Add more project cards as needed */}
         </div>
