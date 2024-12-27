@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useSpring, useTrail, animated } from '@react-spring/web';
+import { useState } from 'react';
+import {useTrail, animated } from '@react-spring/web';
 import './index.css'
 import Home from './pages/Home'
 import Projects from './pages/Projects'
@@ -12,11 +12,6 @@ function App() {
     setMenuOpen(!menuOpen);
   };
 
-  const menuAnimation = useSpring({
-    transform: menuOpen ? 'translateY(0)' : 'translateY(-10px)',
-    opacity: menuOpen ? 1 : 0,
-    config: { tension: 200, friction: 20 }
-  });
 
   const items = [
     { href: '#home', label: 'Home', bg: 'bg-cyan-500/20', border: 'border-cyan-500/30', text: 'text-cyan-300', hover: 'hover:text-cyan-200' },
