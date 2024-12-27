@@ -12,7 +12,7 @@ const About: React.FC = () => {
         <PictureTile 
           title="Frontera Hacks 2024" 
           description="team picture at Frontera Hacks 2024."
-          image="public\fronterahacks2024.JPG" // Replace with the actual image path
+          image="/fronterahacks2024.JPG" // Replace with the actual image path
         />
       </div>
     </div>
