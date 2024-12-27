@@ -45,19 +45,17 @@ function App() {
             <span className="block w-full h-0.5 bg-gray-300"></span>
           </div>
         </button>
-        {menuOpen && (
-          <div className="mt-2 p-4">
-            <ul className="space-y-2">
-              {trail.map((style, index) => (
-                <animated.li key={index} style={style}>
-                  <a href={items[index].href} className={`block ${items[index].bg} backdrop-blur-sm border ${items[index].border} p-2 rounded-full shadow-lg ${items[index].text} ${items[index].hover} transition-all duration-300`}>
-                    {items[index].label}
-                  </a>
-                </animated.li>
-              ))}
-            </ul>
-          </div>
-        )}
+        <div className="mt-2 p-4">
+          <ul className="space-y-2">
+            {trail.map((style, index) => (
+              <animated.li key={index} style={style}>
+                <a href={items[index].href} className={`block ${items[index].bg} backdrop-blur-sm border ${items[index].border} p-2 rounded-full shadow-lg ${items[index].text} ${items[index].hover} transition-all duration-300 text-center`}>
+                  {items[index].label}
+                </a>
+              </animated.li>
+            ))}
+          </ul>
+        </div>
       </nav>
       <main className="relative z-10">
         <Home />
