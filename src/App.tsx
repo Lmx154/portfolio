@@ -3,6 +3,8 @@ import {useTrail, animated } from '@react-spring/web';
 import './index.css'
 import Home from './pages/Home'
 import Projects from './pages/Projects'
+import About from './pages/About'; // Import the About page
+import Contact from './pages/Contact'; // Import the Contact page
 import BackgroundCycle from './BackgroundCycle'
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
   const items = [
     { href: '#home', label: 'Home', bg: 'bg-cyan-500/20', border: 'border-cyan-500/30', text: 'text-cyan-300', hover: 'hover:text-cyan-200' },
     { href: '#projects', label: 'Projects', bg: 'bg-yellow-500/20', border: 'border-yellow-500/30', text: 'text-yellow-300', hover: 'hover:text-yellow-200' },
+    { href: '#about', label: 'About', bg: 'bg-green-500/20', border: 'border-green-500/30', text: 'text-green-300', hover: 'hover:text-green-200' }, // Add About to the menu
     { href: '#contact', label: 'Contact', bg: 'bg-blue-500/20', border: 'border-blue-500/30', text: 'text-blue-300', hover: 'hover:text-blue-200' }
   ];
 
@@ -55,6 +58,8 @@ function App() {
       <main className="relative z-10">
         <Home />
         <Projects />
+        <About /> {/* Add the About page here */}
+        <Contact /> {/* Add the Contact page here */}
       </main>
     </>
   )
