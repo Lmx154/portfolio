@@ -11,7 +11,7 @@ const Home = () => {
       />
       <div className="relative h-[200px] w-full">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-4">
-          <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold gradient-text pb-4 leading-normal text-center mx-auto">
+          <h1 className="text-4xl md:text-4xl lg:text-6xl font-bold gradient-text pb-4 leading-normal text-center mx-auto">
             <Typewriter
               words={[
                 'Welcome to My Portfolio.', 
