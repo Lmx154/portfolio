@@ -3,7 +3,7 @@ import '../index.css'; // Import the global CSS file
 
 const Home = () => {
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen">
+    <div id="home" className="relative flex flex-col items-center justify-center min-h-screen">
       <img
         src="/profile.jpg"
         alt="Portrait"

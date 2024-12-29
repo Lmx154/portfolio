@@ -3,7 +3,7 @@ import { TextTile, PictureTile } from '../components/Tile';
 
 const About: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
+    <div id="about" className="min-h-screen flex flex-col items-center justify-center">
       <div className="max-w-[800px] w-full mx-auto px-4 space-y-8">
         <TextTile 
           title="About Me" 

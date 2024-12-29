@@ -2,7 +2,7 @@ import React from 'react';
 
 const Contact: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col justify-between">
+    <div id="contact" className="min-h-screen flex flex-col justify-between">
       <div className="flex-grow flex flex-col items-center justify-center">
         <div className="max-w-[800px] w-full mx-auto px-4">
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-lg shadow-lg hover:bg-white/10 transition-all duration-300">

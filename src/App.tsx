@@ -14,6 +14,12 @@ function App() {
     setMenuOpen(!menuOpen);
   };
 
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    const element = document.querySelector(href);
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const items = [
     { href: '#home', label: 'Home', bg: 'bg-cyan-500/20', border: 'border-cyan-500/30', text: 'text-cyan-300', hover: 'hover:text-cyan-200' },
@@ -47,7 +53,11 @@ function App() {
           <ul className="space-y-2">
             {trail.map((style, index) => (
               <animated.li key={index} style={style}>
-                <a href={items[index].href} className={`block ${items[index].bg} backdrop-blur-sm border ${items[index].border} p-2 rounded-full shadow-lg ${items[index].text} ${items[index].hover} transition-all duration-300 text-center`}>
+                <a 
+                  href={items[index].href} 
+                  onClick={(e) => handleClick(e, items[index].href)}
+                  className={`block ${items[index].bg} backdrop-blur-sm border ${items[index].border} p-2 rounded-full shadow-lg ${items[index].text} ${items[index].hover} transition-all duration-300 text-center`}
+                >
                   {items[index].label}
                 </a>
               </animated.li>
