@@ -3,37 +3,47 @@ import React, { useRef, FormEvent, useState, useEffect } from 'react';
 declare global {
   interface Window {
     grecaptcha: any;
-    onRecaptchaLoad: () => void;
+    onRecaptchaLoad?: () => void;
   }
 }
 
 const Contact: React.FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
-  const recaptchaRef = useRef<HTMLDivElement>(null);
   const [error, setError] = useState<string>('');
   const [success, setSuccess] = useState<boolean>(false);
+  const [isRecaptchaLoaded, setIsRecaptchaLoaded] = useState(false);
+  const recaptchaRef = useRef<number | null>(null);
 
   useEffect(() => {
-    // Ensure reCAPTCHA is loaded
-    const loadRecaptcha = () => {
-      if (window.grecaptcha && recaptchaRef.current) {
-        window.grecaptcha.render(recaptchaRef.current, {
-          sitekey: import.meta.env.VITE_RECAPTCHA_SITE_KEY,
-          callback: () => {
-            setError('');
-          }
-        });
-      } else {
-        console.error('reCAPTCHA not loaded');
-      }
+    // Load reCAPTCHA script
+    window.onRecaptchaLoad = () => {
+      setIsRecaptchaLoaded(true);
     };
 
-    // Try to load immediately if already available
-    loadRecaptcha();
+    if (!document.querySelector('script[src*="recaptcha"]')) {
+      const script = document.createElement('script');
+      script.src = `https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit`;
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+    }
 
-    // Fallback to wait for script load
-    window.onRecaptchaLoad = loadRecaptcha;
+    return () => {
+      // Cleanup
+      if (recaptchaRef.current !== null) {
+        window.grecaptcha?.reset(recaptchaRef.current);
+      }
+      window.onRecaptchaLoad = undefined;
+    };
   }, []);
+
+  useEffect(() => {
+    if (isRecaptchaLoaded && window.grecaptcha && !recaptchaRef.current) {
+      recaptchaRef.current = window.grecaptcha.render('recaptcha-container', {
+        sitekey: import.meta.env.VITE_RECAPTCHA_SITE_KEY,
+      });
+    }
+  }, [isRecaptchaLoaded]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -41,22 +51,30 @@ const Contact: React.FC = () => {
     setSuccess(false);
 
     try {
-      const captchaResponse = window.grecaptcha.getResponse();
-      if (captchaResponse.length === 0) {
+      const captchaResponse = window.grecaptcha?.getResponse();
+      if (!captchaResponse) {
         setError('Please complete the reCAPTCHA verification');
         return;
       }
 
-      // Form is valid and captcha is verified
       const formData = new FormData(formRef.current!);
+      const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        message: formData.get('message'),
+        captchaResponse
+      };
+
+      // Here you would typically make an API call to your backend
+      console.log('Sending form data:', data);
       
-      // Add your form submission logic here
-      // After successful API call:
+      // Simulating API call success
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
       setSuccess(true);
       formRef.current?.reset();
       window.grecaptcha.reset();
       
-      // Hide success message after 5 seconds
       setTimeout(() => {
         setSuccess(false);
       }, 5000);
@@ -79,6 +97,8 @@ const Contact: React.FC = () => {
                 <input
                   type="text"
                   id="name"
+                  name="name"
+                  required
                   className="w-full p-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-gray-400"
                   placeholder="Your Name"
                 />
@@ -88,6 +108,8 @@ const Contact: React.FC = () => {
                 <input
                   type="email"
                   id="email"
+                  name="email"
+                  required
                   className="w-full p-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-gray-400"
                   placeholder="Your Email"
                 />
@@ -96,13 +118,15 @@ const Contact: React.FC = () => {
                 <label className="block text-lg mb-2" htmlFor="message">Message</label>
                 <textarea
                   id="message"
+                  name="message"
+                  required
                   className="w-full p-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-gray-400"
                   placeholder="Your Message"
                   rows={4}
                 ></textarea>
               </div>
               <div className="flex flex-col items-center gap-4">
-                <div ref={recaptchaRef}></div>
+                <div id="recaptcha-container"></div>
                 {error && <p className="text-red-500 text-sm">{error}</p>}
                 {success && (
                   <div className="w-full p-3 bg-green-500/20 border border-green-500/30 rounded-md text-green-300 text-center">
