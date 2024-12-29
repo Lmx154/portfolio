@@ -13,8 +13,16 @@ const getLabelColors = (label: string) => {
     'TypeScript': { bg: 'bg-blue-500/20', text: 'text-blue-300', border: 'border-blue-500/30' },
     'Rust': { bg: 'bg-orange-500/20', text: 'text-orange-300', border: 'border-orange-500/30' },
     'Python': { bg: 'bg-gradient-to-r from-blue-500/20 to-yellow-500/20', text: 'text-yellow-300', border: 'border-blue-500/30' },
-    'Tailwind': { bg: 'bg-teal-500/20', text: 'text-teal-300', border: 'border-teal-500/30' },
+    'Tailwind': { bg: 'bg-cyan-500/20', text: 'text-cyan-300', border: 'border-cyan-500/30' },
     'Node.js': { bg: 'bg-emerald-500/20', text: 'text-emerald-300', border: 'border-emerald-500/30' },
+    'C#': { bg: 'bg-fuchsia-500/20', text: 'text-fuchsia-300', border: 'border-fuchsia-500/30' },
+    'ASP.NET': { bg: 'bg-purple-500/20', text: 'text-purple-300', border: 'border-purple-500/30' },
+    'Postgres': { bg: 'bg-blue-500/20', text: 'text-blue-300', border: 'border-blue-500/30' },
+    'SQL': { bg: 'bg-green-500/20', text: 'text-green-300', border: 'border-green-500/30' },
+    'Flutter': { bg: 'bg-sky-500/20', text: 'text-sky-300', border: 'border-sky-500/30' },
+    'Dart': { bg: 'bg-teal-500/20', text: 'text-teal-300', border: 'border-teal-500/30' },
+    'Tauri': { bg: 'bg-slate-500/20', text: 'text-slate-300', border: 'border-slate-500/30' },
+    'Embedded': { bg: 'bg-lime-500/20', text: 'text-lime-300', border: 'border-lime-500/30' },
   };
 
   return colorMap[label] || { bg: 'bg-indigo-500/20', text: 'text-indigo-300', border: 'border-indigo-500/30' };

@@ -31,7 +31,7 @@ const Projects = () => {
             title="Portfolio Site"
             description="This portfolio site showcasing my projects."
             link="#"
-            labels={['TypeScript', 'React', 'Tailwind']}
+            labels={['TypeScript', 'React', 'Tailwind', "Node.js"]}
             image="portfolio.png"
           />
           {/* Add more project cards as needed */}
