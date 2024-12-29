@@ -23,6 +23,8 @@ const getLabelColors = (label: string) => {
     'Dart': { bg: 'bg-teal-500/20', text: 'text-teal-300', border: 'border-teal-500/30' },
     'Tauri': { bg: 'bg-slate-500/20', text: 'text-slate-300', border: 'border-slate-500/30' },
     'Embedded': { bg: 'bg-lime-500/20', text: 'text-lime-300', border: 'border-lime-500/30' },
+    'Ruby': { bg: 'bg-red-600/20', text: 'text-red-300', border: 'border-red-500/30' },
+    'Ruby on Rails': { bg: 'bg-gradient-to-r from-red-500/20 to-white/20', text: 'text-red-300', border: 'border-red-600/30' },
   };
 
   return colorMap[label] || { bg: 'bg-indigo-500/20', text: 'text-indigo-300', border: 'border-indigo-500/30' };

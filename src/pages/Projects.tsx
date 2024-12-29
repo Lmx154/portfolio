@@ -35,6 +35,13 @@ const Projects = () => {
               labels={['TypeScript', 'React', 'Tailwind', "Node.js"]}
               image="portfolio.png"
             />
+            <ProjectTile
+              title="Semester Project"
+              description="A gradebook application for teachers assistant and teachers. This web application was a final project for my software engineering class. To test functionality, you can use the following credentials: Email: ta@ta.com Password: default123"
+              link="https://fp-gradebook-f24-team-f24-401.onrender.com"
+              labels={['Ruby', 'Ruby on Rails', 'SQL', 'Postgres']}
+              image="semesterproject.png"
+            />
             {/* Add more project cards as needed */}
           </div>
         </div>
