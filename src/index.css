@@ -74,7 +74,7 @@ nav {
 
 .arrow-container {
   position: absolute;
-  bottom: 20px;
+  bottom: 100px; /* Adjust this value to move the arrow further above the bottom */
   left: 50%;
   transform: translateX(-50%);
 }
@@ -83,14 +83,18 @@ nav {
   width: 24px;
   height: 24px;
   stroke: white; /* Change arrow color to white */
+  transform: scale(2, 2);
+  transform-origin: center;
 }
 
 .arrow-shaft {
-  animation: drawShaft 2s ease-in-out infinite;
+  animation: drawShaft 2s ease-in-out 1 forwards;
+  vector-effect: non-scaling-stroke;
 }
 
 .arrow-head {
-  animation: drawHead 2s ease-in-out infinite;
+  animation: drawHead 2s ease-in-out 1 forwards;
+  vector-effect: non-scaling-stroke;
 }
 
 @keyframes drawShaft {
