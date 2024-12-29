@@ -8,6 +8,12 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      function onRecaptchaLoad() {
+        console.log('reCAPTCHA loaded');
+      }
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit" async defer></script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
