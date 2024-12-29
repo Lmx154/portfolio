@@ -22,6 +22,11 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 - Support for project images
 - Responsive grid layout (1 column on mobile, 2 columns on desktop)
 
+### Contact Form with reCAPTCHA
+- Prevents spam by using Google reCAPTCHA
+- Displays error message if reCAPTCHA verification is not completed
+- Shows success message upon successful form submission
+
 ## Tech Stack
 
 - React 18
@@ -34,6 +39,7 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 1. Clone the repository:
    ```bash
    git clone git@github.com:Lmx154/portfolio.git
+   ```
 2. Navigate to the project directory:
    ```bash
    cd portfolio
@@ -42,6 +48,14 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
    ```bash
    npm install
    ```
+
+### Setting Up reCAPTCHA
+1. Create a `.env` file in the root directory of the project.
+2. Add the following environment variable to the `.env` file:
+   ```properties
+   VITE_RECAPTCHA_SITE_KEY=your-recaptcha-site-key
+   ```
+   Replace `your-recaptcha-site-key` with your actual reCAPTCHA site key.
 
 ### Running the Project
 To start the development server, run:
