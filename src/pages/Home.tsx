@@ -1,8 +1,9 @@
 import { Typewriter } from 'react-simple-typewriter'
+import '../index.css'; // Import the global CSS file
 
 const Home = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="relative flex flex-col items-center justify-center min-h-screen">
       <img
         src="/profile.jpg"
         alt="Portrait"
@@ -19,6 +20,12 @@ const Home = () => {
           delaySpeed={1000}
         />
       </h1>
+      <div className="arrow-container">
+        <svg className="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path className="arrow-shaft" d="M12 0v24" stroke="white" strokeWidth="2" fill="none"/>
+          <path className="arrow-head" d="M4 16l8 8l8-8" stroke="white" strokeWidth="2" fill="none"/>
+        </svg>
+      </div>
     </div>
   );
 };

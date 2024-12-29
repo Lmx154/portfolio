@@ -71,3 +71,46 @@ nav {
     background-position: 0% 50%;
   }
 }
+
+.arrow-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.arrow {
+  width: 24px;
+  height: 24px;
+  stroke: white; /* Change arrow color to white */
+}
+
+.arrow-shaft {
+  animation: drawShaft 2s ease-in-out infinite;
+}
+
+.arrow-head {
+  animation: drawHead 2s ease-in-out infinite;
+}
+
+@keyframes drawShaft {
+  0%, 40% {
+    stroke-dasharray: 0 24;
+    stroke-dashoffset: 0;
+  }
+  60%, 100% {
+    stroke-dasharray: 24 24;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawHead {
+  0%, 60% {
+    stroke-dasharray: 0 24;
+    stroke-dashoffset: 0;
+  }
+  80%, 100% {
+    stroke-dasharray: 24 24;
+    stroke-dashoffset: 0;
+  }
+}
