@@ -18,18 +18,21 @@ const Projects = () => {
             description="Reverse engineered testing module for UTRGV rocket club's telemetry software"
             link="#"
             labels={['Python', 'Embedded']}
+            image="/tastm.jpg"
           />
           <ProjectTile
             title="TDAS-GUI"
             description="Description of the TDAS-GUI project."
             link="#"
             labels={['Rust', 'Tauri', 'JavaScript', 'React']}
+            image="das-gui.png"
           />
           <ProjectTile
             title="Portfolio Site"
             description="This portfolio site showcasing my projects."
             link="#"
             labels={['TypeScript', 'React', 'Tailwind']}
+            image="portfolio.png"
           />
           {/* Add more project cards as needed */}
         </div>
