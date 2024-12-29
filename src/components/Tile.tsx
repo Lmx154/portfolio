@@ -45,13 +45,16 @@ export const PictureTile: React.FC<PictureTileProps> = ({ title, description, im
 };
 
 export const AttachmentTile: React.FC<AttachmentTileProps> = ({ title, description, viewUrl, downloadUrl, fileName }) => {
+  // Add parameters to hide sidebar while keeping other controls
+  const enhancedViewUrl = `${viewUrl}#pagemode=none&scrollbar=0&sidebar=0`;
+  
   return (
     <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-lg shadow-lg hover:bg-white/10 transition-all duration-300">
       <h3 className="text-2xl font-semibold mb-4">{title}</h3>
       <p className="text-lg mb-4">{description}</p>
       <div className="mb-4 w-full aspect-[8.5/11] rounded-lg overflow-hidden">
         <iframe
-          src={viewUrl}
+          src={enhancedViewUrl}
           className="w-full h-full"
           title={title}
         />
