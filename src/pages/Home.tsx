@@ -9,15 +9,19 @@ const Home = () => {
         alt="Portrait"
         className="w-48 h-48 rounded-full object-cover drop-shadow-lg fading-mask"
       />
-      <h1 className="text-6xl font-bold mb-4 gradient-text">
+      <h1 className="text-6xl font-bold mb-4 gradient-text pb-4 leading-normal">
         <Typewriter
-          words={['Welcome to My Portfolio.']}
-          loop={1} // Set loop to 1 to run once
+          words={[
+            'Welcome to My Portfolio.', 
+            'I\'m Luis, a passionate Software Developer.',
+            'Let\'s Build Something Together.'
+          ]}
+          loop={1}
           cursor
-          cursorStyle='█' // Use a block character for the cursor
+          cursorStyle='█'
           typeSpeed={80}
           deleteSpeed={50}
-          delaySpeed={1000}
+          delaySpeed={2000} // Increased delay between messages
         />
       </h1>
       <div className="arrow-container">
