@@ -7,7 +7,7 @@ const Home = () => {
       <img
         src="/profile.jpg"
         alt="Portrait"
-        className="w-48 h-48 rounded-full object-cover drop-shadow-lg fading-mask mb-8"
+        className="w-48 h-48 rounded-full object-cover drop-shadow-lg fading-mask mb-0.1"
       />
       <div className="relative h-[200px] w-full">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-4">
