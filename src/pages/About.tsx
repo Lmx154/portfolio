@@ -16,8 +16,9 @@ const About: React.FC = () => {
         />
         <AttachmentTile
           title="My Resume"
-          description="Download my latest resume"
-          fileUrl="resumedark.pdf"
+          description=""
+          viewUrl="/resumedark.pdf"
+          downloadUrl="/resume.pdf"
           fileName="resume.pdf"
         />
       </div>

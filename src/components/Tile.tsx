@@ -14,7 +14,8 @@ interface PictureTileProps {
 interface AttachmentTileProps {
   title: string;
   description: string;
-  fileUrl: string;
+  viewUrl: string;  // URL for iframe preview (dark mode)
+  downloadUrl: string;  // URL for downloading (regular version)
   fileName: string;
 }
 
@@ -43,20 +44,20 @@ export const PictureTile: React.FC<PictureTileProps> = ({ title, description, im
   );
 };
 
-export const AttachmentTile: React.FC<AttachmentTileProps> = ({ title, description, fileUrl, fileName }) => {
+export const AttachmentTile: React.FC<AttachmentTileProps> = ({ title, description, viewUrl, downloadUrl, fileName }) => {
   return (
     <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-lg shadow-lg hover:bg-white/10 transition-all duration-300">
       <h3 className="text-2xl font-semibold mb-4">{title}</h3>
       <p className="text-lg mb-4">{description}</p>
       <div className="mb-4 w-full aspect-[8.5/11] rounded-lg overflow-hidden">
         <iframe
-          src={fileUrl}
+          src={viewUrl}
           className="w-full h-full"
           title={title}
         />
       </div>
       <a 
-        href={fileUrl}
+        href={downloadUrl}
         download={fileName}
         className="inline-flex items-center px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-300"
       >
