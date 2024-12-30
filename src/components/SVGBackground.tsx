@@ -1,35 +1,34 @@
+// SVGBackground.tsx
 import { useState, useEffect } from 'react';
-import '../index.css'; // must include .fade-in / .fade-out styles
+import '../index.css'; // Must include your .fade-in, .fade-out, etc.
 
-// Number of diamonds across and down in our 800×800 tile
-const COLS = 16; 
-const ROWS = 16;
-// Each “cell” is 50×50 if we want 16 columns (16×50 = 800)
-const CELL_SIZE = 800 / COLS;
+const COLS = 10;         // How many columns of diamonds in the 800×800 tile
+const ROWS = 10;         // How many rows of diamonds
+const TILE_SIZE = 800;   // Our pattern tile is 800×800
+const CELL_SIZE = TILE_SIZE / COLS; // Each cell’s width/height
+const DIAMOND_SIZE = CELL_SIZE / 3; // Diamond corner offset from center
 
 export default function SVGBackground() {
-  // currentPattern is either 0 or 1 (so we can fade between them)
+  // Only toggling between pattern0 and pattern1
   const [currentPattern, setCurrentPattern] = useState<0 | 1>(0);
-  // patternDefs is an array of 2 patterns that we dynamically regenerate
+
+  // Store two random pattern definitions so we can fade between them
   const [patternDefs, setPatternDefs] = useState<JSX.Element[]>([
-    createRandomPattern('pattern0'), 
+    createRandomPattern('pattern0'),
     createRandomPattern('pattern1')
   ]);
 
-  // Every 4 seconds, flip between pattern0 and pattern1
   useEffect(() => {
     const intervalId = setInterval(() => {
-      // Switch 0 -> 1 or 1 -> 0
+      // Flip which pattern is visible
       setCurrentPattern((prev) => (prev === 0 ? 1 : 0));
 
-      // Generate a new pattern for the *other* index
+      // Regenerate the pattern that was just hidden
       setPatternDefs((prevDefs) => {
-        // nextIndex is the one that’s *not* currently visible
-        const nextIndex = currentPattern === 0 ? 0 : 1;
-        // Create a fresh pattern for that index
         const newDefs = [...prevDefs];
-        // We must give each pattern a unique ID each time we recreate it
-        // so it doesn’t conflict in <defs>.
+        // If currentPattern was 0, we just switched to 1, so we regenerate pattern0
+        // If currentPattern was 1, we just switched to 0, so we regenerate pattern1
+        const nextIndex = currentPattern === 0 ? 0 : 1;
         newDefs[nextIndex] = createRandomPattern(`pattern${nextIndex}`);
         return newDefs;
       });
@@ -41,25 +40,20 @@ export default function SVGBackground() {
   return (
     <svg
       className="svg-background"
-      // The viewBox can be something like 0 0 800 600,
-      // but let's make it 0 0 800 800 so it matches the tile height
+      // Make the SVG’s coordinate system 800×800
       viewBox="0 0 800 800"
+      // This attribute ensures the viewBox always covers the full screen 
+      // with no black bars, though some parts may be cropped if the screen
+      // is much wider or taller than 1:1 ratio.
+      preserveAspectRatio="xMidYMid slice"
       xmlns="http://www.w3.org/2000/svg"
     >
-      {/* 
-        We define two <pattern> elements in <defs>.
-        patternDefs[0] and patternDefs[1] are “slots” 
-        that we dynamically regenerate. 
-      */}
       <defs>
         {patternDefs[0]}
         {patternDefs[1]}
       </defs>
 
-      {/* 
-        Two <rect> layers for the background, each referencing 
-        either pattern0 or pattern1. We fade in/out via CSS. 
-      */}
+      {/* Two stacked rects, each referencing one of the patterns */}
       <rect
         className={`pattern-rect ${currentPattern === 0 ? 'fade-in' : 'fade-out'}`}
         x="0"
@@ -81,42 +75,34 @@ export default function SVGBackground() {
 }
 
 /**
- * Creates a <pattern> (width=800, height=800) that draws 
- * a grid of diamonds. Each diamond might be filled or hollow 
- * (stroke‐only) at random.
- * 
- * @param patternId The unique string ID for this pattern in <defs>
+ * Creates a single <pattern> definition with an 800×800 tile. 
+ * The tile is subdivided into COLS × ROWS cells, each containing a diamond 
+ * that may be filled or hollow. All diamonds are gray and smaller/farther apart.
  */
 function createRandomPattern(patternId: string): JSX.Element {
-  // We'll build an array of <path> or <polygon> elements representing each diamond.
-  // Each diamond goes in a cell of size 50×50 (if COLS=16, ROWS=16).
   const diamonds: JSX.Element[] = [];
 
   for (let row = 0; row < ROWS; row++) {
     for (let col = 0; col < COLS; col++) {
-      // Calculate the center of this cell in the 800×800 tile
-      const centerX = col * CELL_SIZE + CELL_SIZE / 2;
-      const centerY = row * CELL_SIZE + CELL_SIZE / 2;
+      // Center of this cell:
+      const cx = col * CELL_SIZE + CELL_SIZE / 2;
+      const cy = row * CELL_SIZE + CELL_SIZE / 2;
 
-      // Decide randomly if diamond is filled or hollow
-      const isFilled = Math.random() < 0.5; 
-      // Random color for variety (could also randomize stroke vs fill)
-      const hue = Math.floor(Math.random() * 360);
-      const color = `hsla(${hue}, 60%, 50%, 1)`; 
+      // Randomly decide if diamond is filled or hollow
+      const isFilled = Math.random() < 0.5;
 
-      // We'll define a diamond shape with corners around center
-      // Diamond corners: top (cx, cy - r), right (cx + r, cy), bottom (cx, cy + r), left (cx - r, cy)
-      // Let's pick a radius ~ half of cell
-      const r = CELL_SIZE / 2.8; 
+      // All diamonds: same gray color
+      const color = 'gray';
+
+      // Path for a diamond: top, right, bottom, left corners
       const diamondPath = `
-        M ${centerX} ${centerY - r}
-        L ${centerX + r} ${centerY}
-        L ${centerX} ${centerY + r}
-        L ${centerX - r} ${centerY}
+        M ${cx} ${cy - DIAMOND_SIZE}
+        L ${cx + DIAMOND_SIZE} ${cy}
+        L ${cx} ${cy + DIAMOND_SIZE}
+        L ${cx - DIAMOND_SIZE} ${cy}
         Z
       `;
 
-      // If it's filled, we do fill=color, stroke=none, else stroke=color, fill=none
       diamonds.push(
         <path
           key={`r${row}c${col}`}
@@ -135,18 +121,11 @@ function createRandomPattern(patternId: string): JSX.Element {
       id={patternId}
       x="0"
       y="0"
-      width="800"
-      height="800"
+      width={TILE_SIZE}
+      height={TILE_SIZE}
       patternUnits="userSpaceOnUse"
     >
-      {/* 
-        We wrap all diamonds in a <g>. 
-        Optionally you could put a background rectangle if you want 
-        something behind the diamonds. 
-      */}
-      <g>
-        {diamonds}
-      </g>
+      <g>{diamonds}</g>
     </pattern>
   );
 }
