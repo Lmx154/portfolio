@@ -17,8 +17,27 @@ function App() {
       }
     };
 
+    const handleTouch = () => {
+      if (menuOpen) {
+        setMenuOpen(false);
+      }
+    };
+
+    const handleWheel = () => {
+      if (menuOpen) {
+        setMenuOpen(false);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('touchmove', handleTouch, { passive: true });
+    window.addEventListener('wheel', handleWheel, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('touchmove', handleTouch);
+      window.removeEventListener('wheel', handleWheel);
+    };
   }, [menuOpen]);
 
   const toggleMenu = () => {
