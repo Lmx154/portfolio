@@ -22,18 +22,20 @@ html {
   position: relative;
   min-height: 100vh;
   background-color: #000000;
-  overflow: hidden; /* Add this to contain the absolute positioned element */
+  overflow-x: hidden; /* Change to only hide horizontal overflow */
+  z-index: 1; /* Ensure root has a stacking context */
 }
 
-/* Add a new fixed background container */
 .background-container {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 0;
+  z-index: -1; /* Place background behind all content */
   background-color: #000000;
+  min-height: 100vh; /* Ensure minimum height */
+  overflow: hidden;
 }
 
 .fading-mask {

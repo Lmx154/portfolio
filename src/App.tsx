@@ -97,7 +97,7 @@ function App() {
           </ul>
         </div>
       </nav>
-      <main className="relative z-10">
+      <main className="relative z-10 min-h-screen">
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
           <Home />
           <Projects />
