@@ -142,3 +142,32 @@ html {
       drop-shadow(0 0 4px rgba(255, 255, 255, 0.4));
   }
 }
+
+.pulsing-frame {
+  position: relative;
+}
+
+.pulsing-frame::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  bottom: -3px;
+  left: -3px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  animation: framePulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes framePulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

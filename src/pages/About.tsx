@@ -16,7 +16,7 @@ const About: React.FC = () => {
         />
         <AttachmentTile
           title="My Resume"
-          description=""
+          description="Download standard (non-dark) version of my resume below."
           viewUrl="/resumedark.pdf"
           downloadUrl="/resume.pdf"
           fileName="resume.pdf"
