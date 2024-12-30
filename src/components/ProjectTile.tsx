@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 interface ProjectTileProps {
   title: string;
   description: string;
@@ -30,17 +32,20 @@ const getLabelColors = (label: string) => {
   return colorMap[label] || { bg: 'bg-indigo-500/20', text: 'text-indigo-300', border: 'border-indigo-500/30' };
 };
 
-const ProjectTile = ({ title, description, link, labels, image }: ProjectTileProps) => {
+const ProjectTile = memo(({ title, description, link, labels, image }: ProjectTileProps) => {
   return (
     <div className={`bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-lg shadow-lg hover:bg-white/10 transition-all duration-300 ${image ? 'h-auto' : 'h-fit'}`}>
       {image ? (
         <div className="mb-4 overflow-hidden rounded-lg">
           <img 
             src={image} 
-            alt="Project preview" 
+            alt={`${title} preview`}
             className="w-full h-48 object-cover transform hover:scale-105 transition-transform duration-500"
             loading="lazy"
             decoding="async"
+            fetchPriority="low"
+            width="800"
+            height="400"
             style={{
               imageRendering: '-webkit-optimize-contrast',
               backfaceVisibility: 'hidden',
@@ -69,6 +74,8 @@ const ProjectTile = ({ title, description, link, labels, image }: ProjectTilePro
       </a>
     </div>
   );
-};
+});
+
+ProjectTile.displayName = 'ProjectTile';
 
 export default ProjectTile;

@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense, lazy } from 'react';
 import {useTrail, animated } from '@react-spring/web';
 import './index.css'
-import Home from './pages/Home'
-import Projects from './pages/Projects'
-import About from './pages/About'; // Import the About page
-import Contact from './pages/Contact'; // Import the Contact page
 import BackgroundCycle from './BackgroundCycle'
+
+// Convert to lazy imports
+const Home = lazy(() => import('./pages/Home'));
+const Projects = lazy(() => import('./pages/Projects'));
+const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/Contact'));
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -96,10 +98,12 @@ function App() {
         </div>
       </nav>
       <main className="relative z-10">
-        <Home />
-        <Projects />
-        <About /> {/* Add the About page here */}
-        <Contact /> {/* Add the Contact page here */}
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+          <Home />
+          <Projects />
+          <About />
+          <Contact />
+        </Suspense>
       </main>
     </>
   )
