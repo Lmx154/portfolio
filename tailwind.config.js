@@ -304,13 +304,18 @@ export default {
     },
     fontFamily: {
       sans: [
-        '"Segoe UI Emoji"',
-        '"Apple Color Emoji"', // Added to prioritize emoji font
-        'ui-sans-serif',
+        '-apple-system',
+        'BlinkMacSystemFont',
         'system-ui',
+        'Roboto',
+        'Helvetica Neue',
+        'Arial',
+        'Noto Sans',
         'sans-serif',
-        '"Segoe UI Symbol"',
-        '"Noto Color Emoji"',
+        'Apple Color Emoji',
+        'Segoe UI Emoji',
+        'Segoe UI Symbol',
+        'Noto Color Emoji',
       ],
       serif: ['ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       mono: [
