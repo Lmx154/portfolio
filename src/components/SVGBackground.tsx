@@ -2,8 +2,8 @@
 import { useState, useEffect } from 'react';
 import '../index.css'; // Must include your .fade-in, .fade-out, etc.
 
-const COLS = 30;         // How many columns of diamonds in the 800×800 tile
-const ROWS = 30;         // How many rows of diamonds
+const COLS = 25;         // How many columns of diamonds in the 800×800 tile
+const ROWS = 25;         // How many rows of diamonds
 const TILE_SIZE = 800;   // Our pattern tile is 800×800
 const CELL_SIZE = TILE_SIZE / COLS; // Each cell’s width/height
 const DIAMOND_SIZE = CELL_SIZE / 15; // Diamond corner offset from center
@@ -102,7 +102,7 @@ function createRandomPattern(patternId: string): JSX.Element {
         L ${cx - DIAMOND_SIZE} ${cy}
         Z
       `;
-
+        // Stroke width is 0.4, so we get a thin border around each diamond
       diamonds.push(
         <path
           key={`r${row}c${col}`}
