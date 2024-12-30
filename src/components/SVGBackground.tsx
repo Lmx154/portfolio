@@ -2,11 +2,11 @@
 import { useState, useEffect } from 'react';
 import '../index.css'; // Must include your .fade-in, .fade-out, etc.
 
-const COLS = 10;         // How many columns of diamonds in the 800×800 tile
-const ROWS = 10;         // How many rows of diamonds
+const COLS = 30;         // How many columns of diamonds in the 800×800 tile
+const ROWS = 30;         // How many rows of diamonds
 const TILE_SIZE = 800;   // Our pattern tile is 800×800
 const CELL_SIZE = TILE_SIZE / COLS; // Each cell’s width/height
-const DIAMOND_SIZE = CELL_SIZE / 3; // Diamond corner offset from center
+const DIAMOND_SIZE = CELL_SIZE / 15; // Diamond corner offset from center
 
 export default function SVGBackground() {
   // Only toggling between pattern0 and pattern1
@@ -109,7 +109,7 @@ function createRandomPattern(patternId: string): JSX.Element {
           d={diamondPath}
           fill={isFilled ? color : 'none'}
           stroke={isFilled ? 'none' : color}
-          strokeWidth={1}
+          strokeWidth={0.4}
         />
       );
     }
