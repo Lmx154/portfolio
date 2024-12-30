@@ -38,7 +38,14 @@ const ProjectTile = ({ title, description, link, labels, image }: ProjectTilePro
           <img 
             src={image} 
             alt="Project preview" 
-            className="w-full h-48 object-cover"
+            className="w-full h-48 object-cover transform hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+            decoding="async"
+            style={{
+              imageRendering: '-webkit-optimize-contrast',
+              backfaceVisibility: 'hidden',
+              WebkitBackfaceVisibility: 'hidden',
+            }}
           />
         </div>
       ) : null}

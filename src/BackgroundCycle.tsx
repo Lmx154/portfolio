@@ -33,7 +33,12 @@ export default function BackgroundCycle() {
           style={{
             backgroundImage: `url('${bg}'), linear-gradient(to bottom, #000, #000)`,
             opacity: index === currentIndex ? 1 : 0,
-            zIndex: index === currentIndex ? 1 : 0
+            zIndex: index === currentIndex ? 1 : 0,
+            imageRendering: '-webkit-optimize-contrast',
+            backfaceVisibility: 'hidden',
+            transform: 'translateZ(0)',
+            WebkitFontSmoothing: 'antialiased',
+            MozOsxFontSmoothing: 'grayscale'
           }}
         />
       ))}
