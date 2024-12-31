@@ -28,7 +28,7 @@ const Home = () => {
           </h1>
         </div>
       </div>
-      <div className="arrow-container absolute bottom-8 left-1/2 transform -translate-x-1/2">
+      <div className="arrow-container mt-auto mb-8">
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
           version="1.1" 
