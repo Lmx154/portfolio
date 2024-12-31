@@ -89,6 +89,12 @@ html {
   transform: translateX(-50%);
 }
 
+@media (max-width: 768px) {
+  .arrow-container {
+    bottom: 5px; /* Adjust position for smaller screens */
+  }
+}
+
 .arrow {
   width: 320px; /* Changed from 120px */
   height: 320px; /* Changed from 120px */
