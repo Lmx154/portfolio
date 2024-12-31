@@ -100,8 +100,10 @@ function App() {
   });
 
   return (
-    <>
-      <SVGBackground />
+    <div className="relative min-h-screen w-full">
+      <div className="fixed inset-0 w-full h-full">
+        <SVGBackground />
+      </div>
 
       <nav className="fixed top-4 left-4 z-50">
         <button
@@ -145,7 +147,7 @@ function App() {
         </div>
       </nav>
 
-      <main className="relative z-10 min-h-screen">
+      <main className="relative z-10">
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
           <Home />
           <Projects />
@@ -153,7 +155,7 @@ function App() {
           <Contact />
         </Suspense>
       </main>
-    </>
+    </div>
   );
 }
 

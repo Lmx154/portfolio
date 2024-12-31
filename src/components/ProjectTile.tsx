@@ -6,6 +6,7 @@ interface ProjectTileProps {
   link: string;
   labels: string[];
   image?: string; // Optional image URL
+  onImageClick: (imageUrl: string) => void;
 }
 
 const getLabelColors = (label: string) => {
@@ -32,7 +33,7 @@ const getLabelColors = (label: string) => {
   return colorMap[label] || { bg: 'bg-indigo-500/20', text: 'text-indigo-300', border: 'border-indigo-500/30' };
 };
 
-const ProjectTile = memo(({ title, description, link, labels, image }: ProjectTileProps) => {
+const ProjectTile = memo(({ title, description, link, labels, image, onImageClick }: ProjectTileProps) => {
   return (
     <div className={`bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-lg shadow-lg hover:bg-white/10 transition-all duration-300 ${image ? 'h-auto' : 'h-fit'}`}>
       {image ? (
@@ -40,12 +41,13 @@ const ProjectTile = memo(({ title, description, link, labels, image }: ProjectTi
           <img 
             src={image} 
             alt={`${title} preview`}
-            className="w-full h-48 object-cover transform hover:scale-105 transition-transform duration-500"
+            className="w-full h-48 object-cover transform hover:scale-105 transition-transform duration-500 cursor-pointer"
             loading="lazy"
             decoding="async"
             fetchPriority="low"
             width="800"
             height="400"
+            onClick={() => onImageClick(image)}
             style={{
               imageRendering: '-webkit-optimize-contrast',
               backfaceVisibility: 'hidden',

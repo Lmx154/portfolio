@@ -1,6 +1,12 @@
+import { useState } from 'react';
 import ProjectTile from '../components/ProjectTile';
 
 const Projects = () => {
+  const [modalImage, setModalImage] = useState<string | null>(null);
+
+  const openModal = (imageUrl: string) => setModalImage(imageUrl);
+  const closeModal = () => setModalImage(null);
+
   return (
     <section id="projects" className="min-h-screen flex flex-col">
       <h1 className="text-6xl font-bold text-center mt-8 mb-12">Projects</h1>
@@ -13,6 +19,7 @@ const Projects = () => {
               link="https://rocketcs.web.app/"
               labels={['Flutter', 'Dart', 'C#', 'ASP.NET', 'SQL', 'Postgres']}
               image="/rocketGame.png"
+              onImageClick={openModal}
             />
             <ProjectTile
               title="TATM"
@@ -20,6 +27,7 @@ const Projects = () => {
               link="#"
               labels={['Python', 'Embedded']}
               image="/tastm.jpg"
+              onImageClick={openModal}
             />
             <ProjectTile
               title="TDAS-GUI"
@@ -27,6 +35,7 @@ const Projects = () => {
               link="#"
               labels={['Rust', 'Tauri', 'JavaScript', 'React']}
               image="das-gui.png"
+              onImageClick={openModal}
             />
             <ProjectTile
               title="Portfolio Site"
@@ -34,6 +43,7 @@ const Projects = () => {
               link="#"
               labels={['TypeScript', 'React', 'Tailwind', "Node.js"]}
               image="portfolio.png"
+              onImageClick={openModal}
             />
             <ProjectTile
               title="Semester Project"
@@ -41,13 +51,33 @@ const Projects = () => {
               link="https://fp-gradebook-f24-team-f24-401.onrender.com"
               labels={['Ruby', 'Ruby on Rails', 'SQL', 'Postgres']}
               image="semesterproject.png"
+              onImageClick={openModal}
             />
             {/* Add more project cards as needed */}
           </div>
         </div>
       </div>
-    </section>
-  )
-}
 
-export default Projects
+      {modalImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[9999]" onClick={closeModal}>
+          <div className="relative w-screen h-screen flex items-center justify-center p-4">
+            <img 
+              src={modalImage} 
+              alt="Full size preview"
+              className="max-w-[95vw] max-h-[95vh] object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button 
+              className="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition-colors"
+              onClick={closeModal}
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+};
+
+export default Projects;
