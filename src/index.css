@@ -83,24 +83,13 @@ html {
 }
 
 .arrow-container {
-  position: fixed;
-  bottom: 0;
+  position: absolute; /* Change to absolute to keep it within the parent container */
+  bottom: 0; /* Set to 0 to ensure it goes all the way to the bottom */
   left: 50%;
   transform: translateX(-50%);
-  margin-bottom: 20px;
+  margin-bottom: 0; /* Ensure no margin at the bottom */
+  padding-bottom: 0; /* Ensure no padding at the bottom */
   z-index: 10;
-}
-
-@media (max-width: 768px) {
-  .arrow-container {
-    bottom: 5px; /* Adjust position for smaller screens */
-    margin-bottom: 1rem;
-  }
-  
-  .arrow {
-    width: 240px;
-    height: 240px;
-  }
 }
 
 .arrow {
