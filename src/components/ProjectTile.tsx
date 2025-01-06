@@ -8,6 +8,7 @@ interface ProjectTileProps {
   labels: string[];
   image?: string; // Optional image URL
   onImageClick: (imageUrl: string) => void;
+  completion: number; // Add completion percentage
 }
 
 const getLabelColors = (label: string) => {
@@ -34,7 +35,11 @@ const getLabelColors = (label: string) => {
   return colorMap[label] || { bg: 'bg-indigo-500/20', text: 'text-indigo-300', border: 'border-indigo-500/30' };
 };
 
-const ProjectTile = memo(({ title, description, link, github, labels, image, onImageClick }: ProjectTileProps) => {
+const ProjectTile = memo(({ title, description, link, github, labels, image, onImageClick, completion }: ProjectTileProps) => {
+  const progressColor = completion === 100 ? 'bg-green-700' : 'bg-yellow-700';
+  const progressBorderColor = completion === 100 ? 'border-green-500' : 'border-yellow-500';
+  const waveEffectClass = completion < 100 ? 'wave-effect' : '';
+
   return (
     <div className={`bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-lg shadow-lg hover:bg-white/10 transition-all duration-300 ${image ? 'h-auto' : 'h-fit'}`}>
       {image ? (
@@ -58,6 +63,17 @@ const ProjectTile = memo(({ title, description, link, github, labels, image, onI
         </div>
       ) : null}
       <h3 className="text-2xl font-semibold mb-4">{title}</h3>
+      <div className={`relative w-full h-4 mb-4 bg-white/10 rounded-full overflow-hidden border-2 ${progressBorderColor}`}>
+        <div className={`absolute top-0 left-0 h-full ${progressColor}`} style={{ width: `${completion}%` }}>
+          {completion < 100 && <div className="wave-effect h-full"></div>}
+        </div>
+        <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center text-sm text-white">
+          {completion < 100 ? 'In Progress' : 'Completed'}
+        </div>
+        <div className="absolute top-0 left-1/4 w-0.5 h-full bg-white/20"></div>
+        <div className="absolute top-0 left-1/2 w-0.5 h-full bg-white/20"></div>
+        <div className="absolute top-0 left-3/4 w-0.5 h-full bg-white/20"></div>
+      </div>
       <div className="flex flex-wrap gap-2 mb-4">
         {labels.map((label, index) => {
           const colors = getLabelColors(label);

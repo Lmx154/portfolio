@@ -21,6 +21,7 @@ const Projects = () => {
               labels={['Flutter', 'Dart', 'C#', 'ASP.NET', 'SQL', 'Postgres']}
               image="/rocketGame.png"
               onImageClick={openModal}
+              completion={100} // Add completion percentage
             />
             <ProjectTile
               title="TATM"
@@ -30,6 +31,7 @@ const Projects = () => {
               labels={['Python', 'Embedded']}
               image="/tastm.jpg"
               onImageClick={openModal}
+              completion={100} // Add completion percentage
             />
             <ProjectTile
               title="TDAS-GUI"
@@ -39,6 +41,7 @@ const Projects = () => {
               labels={['Rust', 'Tauri', 'JavaScript', 'React']}
               image="das-gui.png"
               onImageClick={openModal}
+              completion={100} // Add completion percentage
             />
             <ProjectTile
               title="Portfolio Site"
@@ -48,6 +51,7 @@ const Projects = () => {
               labels={['TypeScript', 'React', 'Tailwind', "Node.js"]}
               image="portfolio.png"
               onImageClick={openModal}
+              completion={80} // Add completion percentage
             />
             <ProjectTile
               title="Portfolio Site v1"
@@ -57,6 +61,7 @@ const Projects = () => {
               labels={['JavaScript', 'React', "Node.js"]}
               image="portfolioog.png"
               onImageClick={openModal}
+              completion={100} // Add completion percentage
             />
             <ProjectTile
               title="Semester Project"
@@ -66,6 +71,7 @@ const Projects = () => {
               labels={['Ruby', 'Ruby on Rails', 'SQL', 'Postgres']}
               image="semesterproject.png"
               onImageClick={openModal}
+              completion={100} // Add completion percentage
             />
             {/* Add more project cards as needed */}
           </div>
