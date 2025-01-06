@@ -50,6 +50,15 @@ const Projects = () => {
               onImageClick={openModal}
             />
             <ProjectTile
+              title="Portfolio Site v1"
+              description="My original portfolio site."
+              link="#"
+              github="https://github.com/username/portfolio-site" // Add GitHub link
+              labels={['JavaScript', 'React', "Node.js"]}
+              image="portfolioog.png"
+              onImageClick={openModal}
+            />
+            <ProjectTile
               title="Semester Project"
               description="A gradebook application for teachers assistant and teachers. This web application was a final project for my software engineering class. To test functionality, you can use the following credentials: Email: ta@ta.com Password: default123"
               link="https://fp-gradebook-f24-team-f24-401.onrender.com"
