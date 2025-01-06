@@ -4,6 +4,7 @@ interface ProjectTileProps {
   title: string;
   description: string;
   link: string;
+  github?: string; // Add optional GitHub link
   labels: string[];
   image?: string; // Optional image URL
   onImageClick: (imageUrl: string) => void;
@@ -33,7 +34,7 @@ const getLabelColors = (label: string) => {
   return colorMap[label] || { bg: 'bg-indigo-500/20', text: 'text-indigo-300', border: 'border-indigo-500/30' };
 };
 
-const ProjectTile = memo(({ title, description, link, labels, image, onImageClick }: ProjectTileProps) => {
+const ProjectTile = memo(({ title, description, link, github, labels, image, onImageClick }: ProjectTileProps) => {
   return (
     <div className={`bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-lg shadow-lg hover:bg-white/10 transition-all duration-300 ${image ? 'h-auto' : 'h-fit'}`}>
       {image ? (
@@ -71,9 +72,27 @@ const ProjectTile = memo(({ title, description, link, labels, image, onImageClic
         })}
       </div>
       <p className="mb-4">{description}</p>
-      <a href={link} className="text-indigo-400 hover:text-indigo-300 transition-colors">
-        View Project
-      </a>
+      <div className="flex justify-between items-center">
+        <a href={link} className="text-indigo-400 hover:text-indigo-300 transition-colors">
+          View Project
+        </a>
+        {github && (
+          <a href={github} className="text-gray-400 hover:text-gray-300 transition-colors" aria-label="View on GitHub">
+            <svg
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+            </svg>
+          </a>
+        )}
+      </div>
     </div>
   );
 });

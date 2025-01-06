@@ -17,6 +17,7 @@ const Projects = () => {
               title="Rocket Game"
               description="Brief description of the project."
               link="https://rocketcs.web.app/"
+              github="https://github.com/username/rocket-game" // Add GitHub link
               labels={['Flutter', 'Dart', 'C#', 'ASP.NET', 'SQL', 'Postgres']}
               image="/rocketGame.png"
               onImageClick={openModal}
@@ -25,6 +26,7 @@ const Projects = () => {
               title="TATM"
               description="Reverse engineered testing module for UTRGV rocket club's telemetry software"
               link="#"
+              github="https://github.com/username/tatm" // Add GitHub link
               labels={['Python', 'Embedded']}
               image="/tastm.jpg"
               onImageClick={openModal}
@@ -33,6 +35,7 @@ const Projects = () => {
               title="TDAS-GUI"
               description="Description of the TDAS-GUI project."
               link="#"
+              github="https://github.com/username/tdas-gui" // Add GitHub link
               labels={['Rust', 'Tauri', 'JavaScript', 'React']}
               image="das-gui.png"
               onImageClick={openModal}
@@ -41,6 +44,7 @@ const Projects = () => {
               title="Portfolio Site"
               description="This portfolio site showcasing my projects."
               link="#"
+              github="https://github.com/username/portfolio-site" // Add GitHub link
               labels={['TypeScript', 'React', 'Tailwind', "Node.js"]}
               image="portfolio.png"
               onImageClick={openModal}
@@ -49,6 +53,7 @@ const Projects = () => {
               title="Semester Project"
               description="A gradebook application for teachers assistant and teachers. This web application was a final project for my software engineering class. To test functionality, you can use the following credentials: Email: ta@ta.com Password: default123"
               link="https://fp-gradebook-f24-team-f24-401.onrender.com"
+              github="https://github.com/username/semester-project" // Add GitHub link
               labels={['Ruby', 'Ruby on Rails', 'SQL', 'Postgres']}
               image="semesterproject.png"
               onImageClick={openModal}
