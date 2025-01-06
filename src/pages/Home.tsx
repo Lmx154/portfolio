@@ -1,25 +1,7 @@
-import { useState, useEffect } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
 import '../index.css'; // Import the global CSS file
 
 const Home = () => {
-  const [showArrow, setShowArrow] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100) { // Adjust the value as needed
-        setShowArrow(false);
-      } else {
-        setShowArrow(true);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
     <div id="home" className="relative flex flex-col items-center justify-center min-h-screen">
       <img
@@ -38,7 +20,7 @@ const Home = () => {
               ]}
               loop={1}
               cursor
-              cursorStyle='|'
+              cursorStyle="|"
               typeSpeed={80}
               deleteSpeed={50}
               delaySpeed={2000} // Increased delay between messages
@@ -46,50 +28,48 @@ const Home = () => {
           </h1>
         </div>
       </div>
-      {showArrow && (
-        <div className="relative arrow-container mb-0 pb-0"> {/* Ensure no margin or padding at the bottom */}
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            version="1.1" 
-            xmlnsXlink="http://www.w3.org/1999/xlink"
-            viewBox="0 0 800 800"
-            className="arrow"
+      <div className="relative arrow-container mb-0 pb-0">
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          version="1.1" 
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 800 800"
+          className="arrow"
+        >
+          <g 
+            strokeWidth="9" 
+            stroke="hsl(0, 0%, 100%)" 
+            fill="none" 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            transform="rotate(45, 400, 400)"
           >
-            <g 
-              strokeWidth="9" 
-              stroke="hsl(0, 0%, 100%)" 
-              fill="none" 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              transform="rotate(45, 400, 400)"
+            <line 
+              x1="372.5" 
+              y1="372.5" 
+              x2="427.5" 
+              y2="427.5" 
+              markerEnd="url(#SvgjsMarker2406)"
+            />
+          </g>
+          <defs>
+            <marker 
+              markerWidth="6.5" 
+              markerHeight="6.5" 
+              refX="3.25" 
+              refY="3.25" 
+              viewBox="0 0 6.5 6.5" 
+              orient="auto" 
+              id="SvgjsMarker2406"
             >
-              <line 
-                x1="372.5" 
-                y1="372.5" 
-                x2="427.5" 
-                y2="427.5" 
-                markerEnd="url(#SvgjsMarker2406)"
+              <polygon 
+                points="0,6.5 3.25,3.25 0,0 6.5,3.25" 
+                fill="hsl(0, 0%, 100%)"
               />
-            </g>
-            <defs>
-              <marker 
-                markerWidth="6.5" 
-                markerHeight="6.5" 
-                refX="3.25" 
-                refY="3.25" 
-                viewBox="0 0 6.5 6.5" 
-                orient="auto" 
-                id="SvgjsMarker2406"
-              >
-                <polygon 
-                  points="0,6.5 3.25,3.25 0,0 6.5,3.25" 
-                  fill="hsl(0, 0%, 100%)"
-                />
-              </marker>
-            </defs>
-          </svg>
-        </div>
-      )}
+            </marker>
+          </defs>
+        </svg>
+      </div>
     </div>
   );
 };

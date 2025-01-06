@@ -1,17 +1,15 @@
 // App.tsx
 
-import { useState, useEffect, Suspense, lazy } from 'react';
+import { useState, useEffect } from 'react';
 import { useTrail, animated } from '@react-spring/web';
 import './index.css';
 
-// Swap out BackgroundCycle for SVGBackground
 import SVGBackground from './components/SVGBackground';
-
-// Lazy-import pages
-const Home = lazy(() => import('./pages/Home'));
-const Projects = lazy(() => import('./pages/Projects'));
-const About = lazy(() => import('./pages/About'));
-const Contact = lazy(() => import('./pages/Contact'));
+// Direct imports instead of lazy loading
+import Home from './pages/Home';
+import Projects from './pages/Projects';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -106,16 +104,16 @@ function App() {
       </div>
 
       <nav className="fixed top-4 left-4 z-50">
-        <button
-          onClick={toggleMenu}
-          className="bg-white/5 backdrop-blur-sm border border-white/10 p-2 rounded-md shadow-lg hover:bg-white/10 transition-all duration-300"
-        >
-          <div className="w-6 h-6 flex flex-col justify-between items-center">
-            <span className="block w-full h-0.5 bg-gray-300"></span>
-            <span className="block w-full h-0.5 bg-gray-300"></span>
-            <span className="block w-full h-0.5 bg-gray-300"></span>
-          </div>
-        </button>
+      <button
+        onClick={toggleMenu}
+        className="bg-white/20 backdrop-blur-md border border-white/30 p-2 rounded-md shadow-lg hover:bg-white/30 transition-all duration-300"
+      >
+        <div className="w-6 h-6 flex flex-col justify-between items-center">
+          <span className="block w-full h-0.5 bg-gray-300"></span>
+          <span className="block w-full h-0.5 bg-gray-300"></span>
+          <span className="block w-full h-0.5 bg-gray-300"></span>
+        </div>
+      </button>
         <div className="mt-2 p-4">
           <ul className="space-y-2">
             {trail.map((style, index) => (
@@ -148,12 +146,10 @@ function App() {
       </nav>
 
       <main className="relative z-10">
-        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
-          <Home />
-          <Projects />
-          <About />
-          <Contact />
-        </Suspense>
+        <Home />
+        <Projects />
+        <About />
+        <Contact />
       </main>
     </div>
   );
