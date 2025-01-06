@@ -38,7 +38,6 @@ const getLabelColors = (label: string) => {
 const ProjectTile = memo(({ title, description, link, github, labels, image, onImageClick, completion }: ProjectTileProps) => {
   const progressColor = completion === 100 ? 'bg-green-700' : 'bg-yellow-700';
   const progressBorderColor = completion === 100 ? 'border-green-500' : 'border-yellow-500';
-  const waveEffectClass = completion < 100 ? 'wave-effect' : '';
 
   return (
     <div className={`bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-lg shadow-lg hover:bg-white/10 transition-all duration-300 ${image ? 'h-auto' : 'h-fit'}`}>
