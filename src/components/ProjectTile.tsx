@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useState } from 'react';
 
 interface ProjectTileProps {
   title: string;
@@ -36,6 +36,7 @@ const getLabelColors = (label: string) => {
 };
 
 const ProjectTile = memo(({ title, description, link, github, labels, image, onImageClick, completion }: ProjectTileProps) => {
+  const [isExpanded, setIsExpanded] = useState(false);
   const progressColor = completion === 100 ? 'bg-green-500/60' : 'bg-amber-400/60';
   const progressBorderColor = completion === 100 ? 'border-green-500/90' : 'border-amber-400/90';
 
@@ -86,8 +87,22 @@ const ProjectTile = memo(({ title, description, link, github, labels, image, onI
           );
         })}
       </div>
-      <p className="mb-4">{description}</p>
-      <div className="flex justify-between items-center">
+      
+      <div className="relative">
+        <p className={`mb-4 ${isExpanded ? '' : 'line-clamp-4'}`}>
+          {description}
+        </p>
+        {description.length > 200 && (
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-indigo-400 hover:text-indigo-300 transition-colors text-sm"
+          >
+            {isExpanded ? 'See less' : 'See more'}
+          </button>
+        )}
+      </div>
+
+      <div className="flex justify-between items-center mt-4">
         <a href={link} className="text-indigo-400 hover:text-indigo-300 transition-colors">
           View Project
         </a>
