@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { memo, useState, useRef, useEffect } from 'react';
 
 interface ProjectTileProps {
   title: string;
@@ -37,11 +37,32 @@ const getLabelColors = (label: string) => {
 
 const ProjectTile = memo(({ title, description, link, github, labels, image, onImageClick, completion }: ProjectTileProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [shouldShowMore, setShouldShowMore] = useState(false);
+  const textRef = useRef<HTMLParagraphElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const checkHeight = () => {
+      if (textRef.current && containerRef.current) {
+        const containerHeight = containerRef.current.offsetHeight;
+        const textHeight = textRef.current.scrollHeight;
+        
+        // If text height is greater than 4 lines (considering line height)
+        setShouldShowMore(textHeight > containerHeight);
+      }
+    };
+
+    checkHeight();
+    // Recheck on window resize
+    window.addEventListener('resize', checkHeight);
+    return () => window.removeEventListener('resize', checkHeight);
+  }, [description]);
+
   const progressColor = completion === 100 ? 'bg-green-500/60' : 'bg-amber-400/60';
   const progressBorderColor = completion === 100 ? 'border-green-500/90' : 'border-amber-400/90';
 
   return (
-    <div className={`bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-lg shadow-lg hover:bg-white/10 transition-all duration-300 ${image ? 'h-auto' : 'h-fit'}`}>
+    <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-lg shadow-lg hover:bg-white/10 transition-all duration-300 flex flex-col h-full">
       {image ? (
         <div className="mb-4 overflow-hidden rounded-lg">
           <img 
@@ -88,11 +109,13 @@ const ProjectTile = memo(({ title, description, link, github, labels, image, onI
         })}
       </div>
       
-      <div className="relative">
-        <p className={`mb-4 ${isExpanded ? '' : 'line-clamp-4'}`}>
-          {description}
-        </p>
-        {description.length > 200 && (
+      <div className="relative flex-grow">
+        <div ref={containerRef} className={`${isExpanded ? '' : 'max-h-[6em] overflow-hidden'}`}>
+          <p ref={textRef} className="mb-4">
+            {description}
+          </p>
+        </div>
+        {shouldShowMore && (
           <button
             onClick={() => setIsExpanded(!isExpanded)}
             className="text-indigo-400 hover:text-indigo-300 transition-colors text-sm"
