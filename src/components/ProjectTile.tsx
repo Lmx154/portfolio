@@ -64,16 +64,16 @@ const ProjectTile = memo(({ title, description, deploymentUrl, github, labels, i
   return (
     <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-lg shadow-lg hover:bg-white/10 transition-all duration-300 flex flex-col h-full">
       {image ? (
-        <div className="mb-4 overflow-hidden rounded-lg">
+        <div className="mb-4 overflow-hidden rounded-lg aspect-video">
           <img 
             src={image} 
             alt={`${title} preview`}
-            className="w-full h-48 object-cover transform hover:scale-105 transition-transform duration-500 cursor-pointer"
+            className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500 cursor-pointer"
             loading="lazy"
             decoding="async"
             fetchPriority="low"
             width="800"
-            height="400"
+            height="450"
             onClick={() => onImageClick(image)}
             style={{
               imageRendering: '-webkit-optimize-contrast',
@@ -143,7 +143,7 @@ const ProjectTile = memo(({ title, description, deploymentUrl, github, labels, i
               >
                 <circle cx="12" cy="12" r="10"/>
                 <path d="M2 12h20"/>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/>
               </svg>
               Live Deployment
             </button>
