@@ -128,9 +128,12 @@ const ProjectTile = memo(({ title, description, deploymentUrl, github, labels, i
       <div className="flex justify-between items-center mt-4">
         <div>
           {deploymentUrl && (
-            <a href={deploymentUrl} className="text-indigo-400 hover:text-indigo-300 transition-colors">
+            <button 
+              onClick={() => window.open(deploymentUrl, '_blank')} 
+              className="px-4 py-2 bg-blue-500/20 border border-blue-500/30 rounded-md text-blue-300 hover:bg-blue-500/30 transition-all duration-300"
+            >
               Live Deployment
-            </a>
+            </button>
           )}
         </div>
         {github && (
