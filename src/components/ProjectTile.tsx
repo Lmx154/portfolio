@@ -3,7 +3,7 @@ import { memo, useState, useRef, useEffect } from 'react';
 interface ProjectTileProps {
   title: string;
   description: string;
-  link: string;
+  deploymentUrl?: string; // Changed from link to deploymentUrl and made optional
   github?: string; // Add optional GitHub link
   labels: string[];
   image?: string; // Optional image URL
@@ -35,7 +35,7 @@ const getLabelColors = (label: string) => {
   return colorMap[label] || { bg: 'bg-indigo-500/20', text: 'text-indigo-300', border: 'border-indigo-500/30' };
 };
 
-const ProjectTile = memo(({ title, description, link, github, labels, image, onImageClick, completion }: ProjectTileProps) => {
+const ProjectTile = memo(({ title, description, deploymentUrl, github, labels, image, onImageClick, completion }: ProjectTileProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [shouldShowMore, setShouldShowMore] = useState(false);
   const textRef = useRef<HTMLParagraphElement>(null);
@@ -126,11 +126,15 @@ const ProjectTile = memo(({ title, description, link, github, labels, image, onI
       </div>
 
       <div className="flex justify-between items-center mt-4">
-        <a href={link} className="text-indigo-400 hover:text-indigo-300 transition-colors">
-          View Project
-        </a>
+        <div>
+          {deploymentUrl && (
+            <a href={deploymentUrl} className="text-indigo-400 hover:text-indigo-300 transition-colors">
+              Live Deployment
+            </a>
+          )}
+        </div>
         {github && (
-          <a href={github} className="text-gray-400 hover:text-gray-300 transition-colors" aria-label="View on GitHub">
+          <a href={github} className="text-gray-400 hover:text-gray-300 transition-colors ml-auto" aria-label="View on GitHub">
             <svg
               viewBox="0 0 24 24"
               width="24"
