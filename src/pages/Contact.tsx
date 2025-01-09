@@ -1,4 +1,5 @@
 import React, { useRef, FormEvent, useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 
 declare global {
   interface Window {
@@ -57,22 +58,24 @@ const Contact: React.FC = () => {
         return;
       }
 
-      const formData = new FormData(formRef.current!);
-      const data = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        message: formData.get('message'),
-        captchaResponse
+      const form = formRef.current!;
+      const formData = new FormData(form);
+      const templateParams = {
+        to_name: "Luis",
+        from_name: formData.get('name') as string,
+        from_email: formData.get('email') as string,
+        message: formData.get('message') as string,
       };
 
-      // Here you would typically make an API call to your backend
-      console.log('Sending form data:', data);
-      
-      // Simulating API call success
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
       
       setSuccess(true);
-      formRef.current?.reset();
+      form.reset();
       window.grecaptcha.reset();
       
       setTimeout(() => {
