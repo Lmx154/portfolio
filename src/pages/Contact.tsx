@@ -148,14 +148,17 @@ const Contact: React.FC = () => {
         </div>
       </div>
       <footer className="w-full bg-black text-white py-4 text-center">
-        <p>&copy; 2024 Luis. All rights reserved.</p>
+        <p>&copy; 2024 Luis Martinez All rights reserved.</p>
         <p>Email: luis_mtz907@live.com</p>
         <div className="flex justify-center space-x-4 mt-4">
-          <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Lmx154" target="_blank" rel="noopener noreferrer">
             <img src="/github.svg" alt="GitHub" className="w-6 h-6" />
           </a>
-          <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/luismtz-2b54f/" target="_blank" rel="noopener noreferrer">
             <img src="/linkedin.svg" alt="LinkedIn" className="w-6 h-6" />
+          </a>
+          <a href="https://x.com/Lmx154" target="_blank" rel="noopener noreferrer">
+            <img src="/x.svg" alt="X (Twitter)" className="w-6 h-6" />
           </a>
         </div>
       </footer>
