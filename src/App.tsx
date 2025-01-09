@@ -93,8 +93,8 @@ function App() {
   const trail = useTrail(items.length, {
     transform: menuOpen ? 'translateY(0)' : 'translateY(-10px)',
     opacity: menuOpen ? 1 : 0,
-    config: { tension: 200, friction: 20 },
-    delay: menuOpen ? 200 : 0,
+    config: { duration: 100, tension: 200, friction: 20 },
+    delay: menuOpen ? 100 : 0,
   });
 
   return (
@@ -128,7 +128,7 @@ function App() {
                     border
                     ${items[index].border}
                     p-2
-                    rounded-full
+                    rounded-md 
                     shadow-lg
                     ${items[index].text}
                     ${items[index].hover}
