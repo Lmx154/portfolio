@@ -51,7 +51,7 @@ This project not only refined the team's telemetry capabilities but also provide
               description="This project modernized the telemetry visualization system for the UTRGV Rocket Launchers team, addressing limitations of the outdated TAS-GUI, which was hindered by deprecated dependencies and frequent bugs. The new system, built using Tauri 2.0 and leveraging Rust for backend performance and React for the frontend, offers a streamlined and reliable platform for real-time telemetry analysis. Key improvements include seamless serial port communication, high-frequency data handling (up to 100Hz), real-time display of critical metrics like acceleration, altitude, and GPS data, and efficient data recording and parsing.
 
 By incorporating technologies like Vite, Tailwind CSS, and asynchronous Rust libraries such as Tokio, the software ensures smooth data visualization and responsive updates. Customizable buffering options and automated file management further enhance usability. This reimagined system not only resolves the original software's challenges but also provides an extensible framework for future enhancements, reinforcing the team's ability to monitor and analyze telemetry data effectively."
-              github="https://github.com/username/tdas-gui" // Add GitHub link
+              github="https://github.com/Lmx154/TDAS-GUI" // Add GitHub link
               labels={['Rust', 'Tauri', 'Tailwind', 'JavaScript', 'React']}
               image="das-gui.png"
               onImageClick={openModal}
@@ -67,7 +67,7 @@ The contact form includes Google reCAPTCHA v2 to prevent spam and maintain the i
 
 This portfolio site reflects my dedication to continuous improvement and showcases my ability to create modern, visually appealing, and functional web applications. It serves as a dynamic and professional representation of my technical expertise and creativity."
               deploymentUrl="https://luisamartinez.xyz/"
-              github="https://github.com/username/portfolio-site" // Add GitHub link
+              github="https://github.com/Lmx154/portfolio" // Add GitHub link
               labels={['TypeScript', 'React', 'Tailwind', "Node.js"]}
               image="portfolio.png"
               onImageClick={openModal}
@@ -76,7 +76,7 @@ This portfolio site reflects my dedication to continuous improvement and showcas
             <ProjectTile
               title="Portfolio Site v1"
               description="My original portfolio site made during Fall 2024 semester. I made this site mostly in HTML/CSS since I wasn't yet familiar with JavaScript. I used this site to learn the basics of web development."
-              github="https://github.com/username/portfolio-site" // Add GitHub link
+              github="https://github.com/Lmx154/mywebsite" // Add GitHub link
               labels={['JavaScript', 'React', "Node.js"]}
               image="portfolioog.png"
               onImageClick={openModal}
@@ -92,7 +92,7 @@ Key features of the gradebook include the ability for teachers and teaching assi
 
 This project exemplifies my ability to lead a team, manage development workflows, and deliver a polished application that meets both technical and user needs. It also highlights my proficiency with modern tools and frameworks, including Rails, PostgreSQL, and automated testing with RSpec and Cucumber. Below is a link to my team's deployed project. You can use the following credentials to test it out: Email: ta@ta.com Password: default123"
               deploymentUrl="https://fp-gradebook-f24-team-f24-401.onrender.com"
-              github="https://github.com/username/semester-project" // Add GitHub link
+              github="https://github.com/Lmx154/gradebook" // Add GitHub link
               labels={['Ruby', 'Ruby on Rails', 'SQL', 'Postgres']}
               image="semesterproject.png"
               onImageClick={openModal}

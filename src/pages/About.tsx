@@ -13,13 +13,21 @@ const About: React.FC = () => {
             <div className="landscape:flex-grow">
               <TextTile 
                 title="About Me" 
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+                description=" Hello! I'm a software developer based in Weslaco, Texas, currently pursuing a Bachelor’s degree in Computer Science at the University of Texas Rio Grande Valley (UTRGV). My journey into technology began at a young age, driven by a passion for problem-solving and creativity. My first experiences with programming involved modding games and building simple websites, sparking a lifelong interest in tech.
+
+Before transferring to UTRGV, I earned an Associate’s degree in Computer Science from South Texas College. During this time, I also gained hands-on experience in IT, working for approximately two years and deepening my understanding of computer hardware and system management.
+
+At UTRGV, I’m an active member of the Rocket Launchers Club, where I collaborate with like-minded individuals on exciting aerospace projects. Additionally, I frequently attend hackathons, where I enjoy tackling challenges, learning from peers, and networking with other passionate developers. I value building strong connections within the tech community and sharing knowledge through collaboration and teamwork.
+
+I’m passionate about continuous learning and innovation. I love exploring emerging technologies, researching their applications, and integrating them into my projects. Whether it's developing software, solving technical challenges, or diving into new frameworks, I’m always eager to expand my skills and take on new challenges.
+
+Feel free to explore the gallery below to see highlights from my experiences."
               />
             </div>
             <div className="landscape:flex-shrink-0">
               <PictureTile 
                 title="Frontera Hacks 2024" 
-                description="team picture at Frontera Hacks 2024."
+                description=" "
                 image="/fronterahacks2024.JPG"
               />
             </div>
