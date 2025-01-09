@@ -4,28 +4,29 @@ import '../index.css'; // Import the global CSS file
 const Home = () => {
   return (
     <div id="home" className="relative flex flex-col items-center justify-center min-h-screen">
-      <img
-        src="/profile.jpg"
-        alt="Portrait"
-        className="w-64 h-64 rounded-full object-cover drop-shadow-lg mb-0.1 glow-effect" // Increased size
-      />
-      <div className="relative h-[200px] w-full">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-4">
-          <h1 className="text-4xl md:text-4xl lg:text-6xl font-semibold tracking-normal md:tracking-normal lg:tracking-normal gradient-text pb-4 leading-normal text-center mx-auto">
-            <Typewriter
-              words={[
-                'Welcome to My Portfolio.', 
-                'I\'m Luis, a passionate Software Developer.',
-                'Let\'s Build Something Together.'
-              ]}
-              loop={1}
-              cursor
-              cursorStyle="|"
-              typeSpeed={80}
-              deleteSpeed={50}
-              delaySpeed={2000} // Increased delay between messages
-            />
-          </h1>
+      <div className="w-full max-w-4xl px-4">
+        <h1 className="text-6xl md:text-6xl lg:text-8xl font-normal tracking-normal md:tracking-normal lg:tracking-normal gradient-text pb-4 leading-normal text-left">
+          Luis Martinez
+        </h1>
+        <div className="relative h-[200px]">
+          <div className="absolute w-full">
+            <h1 className="text-2xl md:text-2xl lg:text-4xl font-normal tracking-normal md:tracking-normal lg:tracking-normal text-white pb-4 leading-normal text-left">
+              <Typewriter
+                words={[
+                  'Full Stack Developer', 
+                  'Embedded Developer',
+                  'Student',
+                  'Tech Enthusiast',
+                ]}
+                loop={0}
+                cursor
+                cursorStyle="|"
+                typeSpeed={50}
+                deleteSpeed={20}
+                delaySpeed={2000} // Increased delay between messages
+              />
+            </h1>
+          </div>
         </div>
       </div>
       <div className="relative arrow-container mb-0 pb-0">

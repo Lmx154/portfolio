@@ -7,6 +7,11 @@ const About: React.FC = () => {
       <div className="flex justify-center w-full mb-20">
         <div className="w-[200px] h-[2px] bg-gray-700 rounded-full"></div>
       </div>
+      <img
+        src="/profile.jpg"
+        alt="Portrait"
+        className="w-64 h-64 rounded-full object-cover drop-shadow-lg mb-8 glow-effect"
+      />
       <div className="max-w-[800px] landscape:max-w-[1600px] w-full mx-auto px-4">
         <div className="grid grid-cols-1 landscape:grid-cols-[800px,800px] landscape:justify-center gap-8">
           <div className="space-y-8 landscape:flex landscape:flex-col">
@@ -29,6 +34,24 @@ Feel free to explore the gallery below to see highlights from my experiences."
                 title="Frontera Hacks 2024" 
                 description=" "
                 image="/fronterahacks2024.JPG"
+              />
+            </div>
+            <div className="landscape:flex-grow">
+              <TextTile 
+                title="Productive" 
+                description="I consistently strive to maximize my productivity by setting clear goals, prioritizing tasks, and maintaining a focused work ethic."
+              />
+            </div>
+            <div className="landscape:flex-grow">
+              <TextTile 
+                title="Self-Learner" 
+                description="I am dedicated to continuous self-improvement and actively seek out new knowledge and skills through various learning resources."
+              />
+            </div>
+            <div className="landscape:flex-grow">
+              <TextTile 
+                title="Problem Solver" 
+                description="I enjoy tackling complex problems and finding innovative solutions through analytical thinking and creative approaches."
               />
             </div>
           </div>
