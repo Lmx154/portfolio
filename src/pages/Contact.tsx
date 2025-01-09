@@ -150,20 +150,32 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </div>
-      <footer className="w-full bg-black text-white py-4 text-center">
-        <p>&copy; 2024 Luis Martinez All rights reserved.</p>
-        <p>Email: luis_mtz907@live.com</p>
-        <div className="flex justify-center space-x-4 mt-4">
-          <a href="https://github.com/Lmx154" target="_blank" rel="noopener noreferrer">
-            <img src="/github.svg" alt="GitHub" className="w-6 h-6" />
-          </a>
-          <a href="https://www.linkedin.com/in/luismtz-2b54f/" target="_blank" rel="noopener noreferrer">
-            <img src="/linkedin.svg" alt="LinkedIn" className="w-6 h-6" />
-          </a>
-          <a href="https://x.com/Lmx154" target="_blank" rel="noopener noreferrer">
-            <img src="/x.svg" alt="X (Twitter)" className="w-6 h-6" />
-          </a>
+      <footer className="w-full bg-white/5 backdrop-blur-sm text-white/80 py-4 text-center border-t border-white/10">
+        <div className="flex justify-center items-start space-x-16 mb-4">
+          <div className="text-left">
+            <h3 className="text-lg font-semibold mb-2">Contact Me</h3>
+            <p>Email: Luis_Mtz907@live.com</p>
+            <p>Phone: 956-376-1227</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-2">Socials</h3>
+            <div className="flex space-x-4">
+              <a href="https://github.com/Lmx154" target="_blank" rel="noopener noreferrer">
+                <img src="/github.svg" alt="GitHub" className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity" />
+              </a>
+              <a href="https://www.linkedin.com/in/luismtz-2b54f/" target="_blank" rel="noopener noreferrer">
+                <img src="/linkedin.svg" alt="LinkedIn" className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity" />
+              </a>
+              <a href="https://x.com/Lmx154" target="_blank" rel="noopener noreferrer">
+                <img src="/x.svg" alt="X (Twitter)" className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity" />
+              </a>
+            </div>
+          </div>
         </div>
+        <div className="flex justify-center w-full my-4">
+          <div className="w-[200px] h-[2px] bg-gray-700 rounded-full"></div>
+        </div>
+        <p>&copy; 2024 Luis Martinez All rights reserved.</p>
       </footer>
     </div>
   );
