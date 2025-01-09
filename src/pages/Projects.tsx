@@ -9,7 +9,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="min-h-screen flex flex-col">
-      <h1 className="text-6xl text-center mt-8 mb-12">Projects</h1>
+      <h1 className="text-6xl text-center mt-8 mb-20">Projects</h1>
       <div className="flex-1 flex items-center justify-center mb-20">
         <div className="max-w-[1600px] w-full mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
