@@ -91,7 +91,7 @@ const Contact: React.FC = () => {
         <div className="w-[200px] h-[2px] bg-gray-700 rounded-full"></div>
       </div>
       <div className="flex-grow flex flex-col items-center justify-center">
-        <div className="max-w-[800px] w-full mx-auto px-4">
+        <div className="max-w-[800px] w-full mx-auto px-4 mb-20">
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-lg shadow-lg hover:bg-white/10 transition-all duration-300">
             <h1 className="text-4xl font-bold mb-4">Contact Me</h1>
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
