@@ -31,29 +31,6 @@ const Home = () => {
             </h1>
           </div>
         </div>
-        <div className="mt-[-140px]"> {/* Changed margin to negative value to pull the button closer */}
-          <a
-            href="#about"
-            className="
-              inline-block
-              bg-green-500/20
-              backdrop-blur-sm
-              border
-              border-green-500/30
-              px-4
-              py-2
-              rounded-md
-              shadow-lg
-              text-green-300
-              hover:text-green-200
-              transition-all
-              duration-300
-              text-center
-            "
-          >
-            About Me
-          </a>
-        </div>
       </div>
       <div className="relative arrow-container mb-0 pb-0">
         <svg 
