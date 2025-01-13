@@ -26,7 +26,7 @@ function App() {
             }
           });
         },
-        { threshold: 0.3,
+        { threshold: 0.2,
           rootMargin: '0px 0px -20% 0px'
          }
       );
