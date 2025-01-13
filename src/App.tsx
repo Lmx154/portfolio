@@ -26,7 +26,9 @@ function App() {
             }
           });
         },
-        { threshold: 0.3 }
+        { threshold: 0.3,
+          rootMargin: '0px 0px -20% 0px'
+         }
       );
 
       const element = document.querySelector(`#${section}`);
