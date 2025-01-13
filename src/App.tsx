@@ -13,6 +13,31 @@ import Contact from './pages/Contact';
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [currentSection, setCurrentSection] = useState('home');
+
+  useEffect(() => {
+    const sections = ['home', 'projects', 'about', 'contact'];
+    const observers = sections.map(section => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              setCurrentSection(section);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      const element = document.querySelector(`#${section}`);
+      if (element) observer.observe(element);
+      return observer;
+    });
+
+    return () => {
+      observers.forEach(observer => observer.disconnect());
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -97,6 +122,16 @@ function App() {
     delay: menuOpen ? 100 : 0,
   });
 
+  const getCurrentColors = () => {
+    const colorMap = {
+      home: 'bg-red-500/20 border-red-500/30',
+      projects: 'bg-yellow-500/20 border-yellow-500/30',
+      about: 'bg-green-500/20 border-green-500/30',
+      contact: 'bg-blue-500/20 border-blue-500/30'
+    };
+    return colorMap[currentSection as keyof typeof colorMap] || colorMap.home;
+  };
+
   return (
     <div className="relative min-h-screen w-full">
       <div className="fixed inset-0 w-full h-full">
@@ -106,7 +141,7 @@ function App() {
       <nav className="fixed top-4 left-4 z-50">
         <button
           onClick={toggleMenu}
-          className="bg-white/20 backdrop-blur-md border border-white/30 p-2 rounded-md shadow-lg hover:bg-white/30 transition-all duration-300"
+          className={`backdrop-blur-md border p-2 rounded-md shadow-lg hover:bg-white/30 transition-all duration-300 ${getCurrentColors()}`}
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-8">
             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
