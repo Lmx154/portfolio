@@ -24,7 +24,7 @@ interface TraitTileProps {
 
 const TextTile: React.FC<TextTileProps> = ({ title, description, downloadUrl, downloadLabel, icon }) => {
   return (
-    <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-lg shadow-lg hover:bg-white/10 transition-all duration-300">
+    <div className="base-tile">
       {icon && <div className="flex justify-center mb-4 text-white">{icon}</div>}
       <h1 className="text-4xl font-bold mb-4">{title}</h1>
       <p className="text-lg">{description}</p>
@@ -48,7 +48,7 @@ const TextTile: React.FC<TextTileProps> = ({ title, description, downloadUrl, do
 
 const PictureTile: React.FC<PictureTileProps> = ({ title, description, image }) => {
   return (
-    <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-lg shadow-lg hover:bg-white/10 transition-all duration-300">
+    <div className="base-tile">
       <div className="mb-4 overflow-hidden rounded-lg">
         <img 
           src={image} 

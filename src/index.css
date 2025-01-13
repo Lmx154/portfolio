@@ -227,3 +227,7 @@ html, body {
     background-position: 200% 50%;
   }
 }
+
+.base-tile {
+  @apply bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-lg shadow-lg hover:bg-white/10 transition-all duration-300 w-full max-w-[800px];
+}

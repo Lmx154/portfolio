@@ -62,7 +62,7 @@ const ProjectTile = memo(({ title, description, deploymentUrl, github, labels, i
   const progressBorderColor = completion === 100 ? 'border-green-500/90' : 'border-amber-400/90';
 
   return (
-    <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-lg shadow-lg hover:bg-white/10 transition-all duration-300 flex flex-col h-full">
+    <div className="base-tile flex flex-col h-full">
       {image ? (
         <div className="mb-4 overflow-hidden rounded-lg aspect-video">
           <img 

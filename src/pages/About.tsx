@@ -12,10 +12,10 @@ const About: React.FC = () => {
         alt="Portrait"
         className="w-64 h-64 rounded-full object-cover drop-shadow-lg mb-8 glow-effect"
       />
-      <div className="max-w-[800px] landscape:max-w-[1600px] w-full mx-auto px-4">
-        <div className="grid grid-cols-1 landscape:grid-cols-[800px,800px] landscape:justify-center gap-8">
-          <div className="space-y-8 landscape:flex landscape:flex-col">
-            <div className="landscape:flex-grow">
+      <div className="max-w-[1600px] w-full mx-auto px-4">
+        <div className="grid grid-cols-1 landscape:grid-cols-2 landscape:justify-center gap-8 items-start">
+          <div className="space-y-8 landscape:flex landscape:flex-col max-w-full">
+            <div className="landscape:flex-grow max-w-full">
               <TextTile 
                 title="About Me" 
                 description={

@@ -10,9 +10,9 @@ const Projects = () => {
   return (
     <section id="projects" className="min-h-screen flex flex-col">
       <h1 className="text-6xl text-center mt-8 mb-20">Projects</h1>
-      <div className="flex-1 flex items-center justify-center mb-20">
+      <div className="flex-1 flex items-start justify-center mb-20">
         <div className="max-w-[1600px] w-full mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             <ProjectTile
               title="Rocket Game"
               description="This project is a 2D arcade-style rocket game, developed using Flutter and Dart, designed to showcase Dart’s capabilities for cross-platform development. In the game, players navigate a rocket through space, avoiding asteroids and rescuing stranded astronauts to earn points. The game highlights Dart’s simplicity and efficiency in building interactive and responsive applications.
