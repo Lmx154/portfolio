@@ -59,10 +59,10 @@ function App() {
     {
       href: '#home',
       label: 'Home',
-      bg: 'bg-cyan-500/20',
-      border: 'border-cyan-500/30',
-      text: 'text-cyan-300',
-      hover: 'hover:text-cyan-200',
+      bg: 'bg-red-500/20',
+      border: 'border-red-500/30',
+      text: 'text-red-300',
+      hover: 'hover:text-red-200',
     },
     {
       href: '#projects',
@@ -104,16 +104,14 @@ function App() {
       </div>
 
       <nav className="fixed top-4 left-4 z-50">
-      <button
-        onClick={toggleMenu}
-        className="bg-white/20 backdrop-blur-md border border-white/30 p-2 rounded-md shadow-lg hover:bg-white/30 transition-all duration-300"
-      >
-        <div className="w-6 h-6 flex flex-col justify-between items-center">
-          <span className="block w-full h-0.5 bg-gray-300"></span>
-          <span className="block w-full h-0.5 bg-gray-300"></span>
-          <span className="block w-full h-0.5 bg-gray-300"></span>
-        </div>
-      </button>
+        <button
+          onClick={toggleMenu}
+          className="bg-white/20 backdrop-blur-md border border-white/30 p-2 rounded-md shadow-lg hover:bg-white/30 transition-all duration-300"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-8">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
         <div className="mt-2 p-4">
           <ul className="space-y-2">
             {trail.map((style, index) => (
