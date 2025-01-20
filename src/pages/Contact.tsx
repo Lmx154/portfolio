@@ -1,5 +1,5 @@
-import React, { useRef, FormEvent, useState, useEffect } from 'react';
-import emailjs from '@emailjs/browser';
+import React, { useRef, FormEvent, useState, useEffect } from "react";
+import emailjs from "@emailjs/browser";
 
 declare global {
   interface Window {
@@ -10,7 +10,7 @@ declare global {
 
 const Contact: React.FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
-  const [error, setError] = useState<string>('');
+  const [error, setError] = useState<string>("");
   const [success, setSuccess] = useState<boolean>(false);
   const [isRecaptchaLoaded, setIsRecaptchaLoaded] = useState(false);
   const recaptchaRef = useRef<number | null>(null);
@@ -22,7 +22,7 @@ const Contact: React.FC = () => {
     };
 
     if (!document.querySelector('script[src*="recaptcha"]')) {
-      const script = document.createElement('script');
+      const script = document.createElement("script");
       script.src = `https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit`;
       script.async = true;
       script.defer = true;
@@ -40,7 +40,7 @@ const Contact: React.FC = () => {
 
   useEffect(() => {
     if (isRecaptchaLoaded && window.grecaptcha && !recaptchaRef.current) {
-      recaptchaRef.current = window.grecaptcha.render('recaptcha-container', {
+      recaptchaRef.current = window.grecaptcha.render("recaptcha-container", {
         sitekey: import.meta.env.VITE_RECAPTCHA_SITE_KEY,
       });
     }
@@ -48,13 +48,13 @@ const Contact: React.FC = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setError('');
+    setError("");
     setSuccess(false);
 
     try {
       const captchaResponse = window.grecaptcha?.getResponse();
       if (!captchaResponse) {
-        setError('Please complete the reCAPTCHA verification');
+        setError("Please complete the reCAPTCHA verification");
         return;
       }
 
@@ -62,28 +62,27 @@ const Contact: React.FC = () => {
       const formData = new FormData(form);
       const templateParams = {
         to_name: "Luis",
-        from_name: formData.get('name') as string,
-        from_email: formData.get('email') as string,
-        message: formData.get('message') as string,
+        from_name: formData.get("name") as string,
+        from_email: formData.get("email") as string,
+        message: formData.get("message") as string,
       };
 
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         templateParams,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       );
-      
+
       setSuccess(true);
       form.reset();
       window.grecaptcha.reset();
-      
+
       setTimeout(() => {
         setSuccess(false);
       }, 5000);
-      
     } catch (err) {
-      setError('An error occurred. Please try again.');
+      setError("An error occurred. Please try again.");
       console.error(err);
     }
   };
@@ -99,7 +98,9 @@ const Contact: React.FC = () => {
             <h1 className="text-4xl font-bold mb-4">Contact Me</h1>
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-lg mb-2" htmlFor="name">Name</label>
+                <label className="block text-lg mb-2" htmlFor="name">
+                  Name
+                </label>
                 <input
                   type="text"
                   id="name"
@@ -110,7 +111,9 @@ const Contact: React.FC = () => {
                 />
               </div>
               <div>
-                <label className="block text-lg mb-2" htmlFor="email">Email</label>
+                <label className="block text-lg mb-2" htmlFor="email">
+                  Email
+                </label>
                 <input
                   type="email"
                   id="email"
@@ -121,7 +124,9 @@ const Contact: React.FC = () => {
                 />
               </div>
               <div>
-                <label className="block text-lg mb-2" htmlFor="message">Message</label>
+                <label className="block text-lg mb-2" htmlFor="message">
+                  Message
+                </label>
                 <textarea
                   id="message"
                   name="message"
@@ -160,14 +165,38 @@ const Contact: React.FC = () => {
           <div>
             <h3 className="text-lg font-semibold mb-2">Socials</h3>
             <div className="flex space-x-4">
-              <a href="https://github.com/Lmx154" target="_blank" rel="noopener noreferrer">
-                <img src="/github.svg" alt="GitHub" className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity" />
+              <a
+                href="https://github.com/Lmx154"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/github.svg"
+                  alt="GitHub"
+                  className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity"
+                />
               </a>
-              <a href="https://www.linkedin.com/in/luismtz-2b54f/" target="_blank" rel="noopener noreferrer">
-                <img src="/linkedin.svg" alt="LinkedIn" className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity" />
+              <a
+                href="https://www.linkedin.com/in/luismtz-2b54f/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/linkedin.svg"
+                  alt="LinkedIn"
+                  className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity"
+                />
               </a>
-              <a href="https://x.com/Lmx154" target="_blank" rel="noopener noreferrer">
-                <img src="/x.svg" alt="X (Twitter)" className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity" />
+              <a
+                href="https://x.com/Lmx154"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/x.svg"
+                  alt="X (Twitter)"
+                  className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity"
+                />
               </a>
             </div>
           </div>
@@ -175,7 +204,7 @@ const Contact: React.FC = () => {
         <div className="flex justify-center w-full my-4">
           <div className="w-[200px] h-[2px] bg-gray-700 rounded-full"></div>
         </div>
-        <p>&copy; 2024 Luis Martinez All rights reserved.</p>
+        <p>&copy; 2025 Luis Martinez All rights reserved.</p>
       </footer>
     </div>
   );
