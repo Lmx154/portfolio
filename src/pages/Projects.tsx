@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import ProjectTile from '../components/ProjectTile';
+import { useState } from "react";
+import ProjectTile from "../components/ProjectTile";
 
 const Projects = () => {
   const [modalImage, setModalImage] = useState<string | null>(null);
@@ -26,7 +26,7 @@ The game's frontend, built with Flutter, is hosted on Firebase, demonstrating se
 The project highlights the strengths of Dart for frontend development, C# for backend logic, and PostgreSQL for robust data storage, emphasizing the unique features of each technology. It was created as a presentation for my Organization of Programming Languages class to demonstrate the capabilities of these tools in building cohesive, full-stack solutions."
               deploymentUrl="https://rocketcs.web.app/"
               github="https://github.com/Lmx154/dart_demo" // Add GitHub link
-              labels={['Flutter', 'Dart', 'C#', 'ASP.NET', 'SQL', 'Postgres']}
+              labels={["Flutter", "Dart", "C#", "ASP.NET", "SQL", "Postgres"]}
               image="/rocketGame.png"
               onImageClick={openModal}
               completion={100} // Add completion percentage
@@ -41,7 +41,7 @@ Building on this foundation, I developed a new telemetry data acquisition system
 
 This project not only refined the team's telemetry capabilities but also provided me with hands-on experience in designing, testing, and deploying real-time data systems. It exemplifies my ability to identify challenges, apply engineering principles, and leverage modern technologies to deliver practical and impactful solutions."
               github="https://github.com/Lmx154/TASTM" // Add GitHub link
-              labels={['Python', 'Embedded']}
+              labels={["Python", "Embedded"]}
               image="/tastm.jpg"
               onImageClick={openModal}
               completion={100} // Add completion percentage
@@ -52,7 +52,7 @@ This project not only refined the team's telemetry capabilities but also provide
 
 By incorporating technologies like Vite, Tailwind CSS, and asynchronous Rust libraries such as Tokio, the software ensures smooth data visualization and responsive updates. Customizable buffering options and automated file management further enhance usability. This reimagined system not only resolves the original software's challenges but also provides an extensible framework for future enhancements, reinforcing the team's ability to monitor and analyze telemetry data effectively."
               github="https://github.com/Lmx154/TDAS-GUI" // Add GitHub link
-              labels={['Rust', 'Tauri', 'Tailwind', 'JavaScript', 'React']}
+              labels={["Rust", "Tauri", "Tailwind", "JavaScript", "React"]}
               image="das-gui.png"
               onImageClick={openModal}
               completion={100} // Add completion percentage
@@ -70,7 +70,7 @@ The contact form is a critical feature of the site, designed for both functional
 This portfolio site reflects my dedication to continuous improvement and showcases my ability to create modern, visually appealing, and functional web applications. It serves as a dynamic and professional representation of my technical expertise, creativity, and commitment to delivering high-quality work."
               deploymentUrl="https://luisamartinez.xyz/"
               github="https://github.com/Lmx154/portfolio" // Add GitHub link
-              labels={['TypeScript', 'React', 'Tailwind', "Node.js"]}
+              labels={["TypeScript", "React", "Tailwind", "Node.js"]}
               image="portfolio.png"
               onImageClick={openModal}
               completion={80} // Add completion percentage
@@ -79,7 +79,7 @@ This portfolio site reflects my dedication to continuous improvement and showcas
               title="Portfolio Site v1"
               description="My original portfolio site made during Fall 2024 semester. I made this site mostly in HTML/CSS since I wasn't yet familiar with JavaScript. I used this site to learn the basics of web development."
               github="https://github.com/Lmx154/mywebsite" // Add GitHub link
-              labels={['JavaScript', 'React', "Node.js"]}
+              labels={["JavaScript", "React", "Node.js"]}
               image="portfolioog.png"
               onImageClick={openModal}
               completion={100} // Add completion percentage
@@ -95,26 +95,59 @@ Key features of the gradebook include the ability for teachers and teaching assi
 This project exemplifies my ability to lead a team, manage development workflows, and deliver a polished application that meets both technical and user needs. It also highlights my proficiency with modern tools and frameworks, including Rails, PostgreSQL, and automated testing with RSpec and Cucumber. Below is a link to my team's deployed project. You can use the following credentials to test it out: Email: ta@ta.com Password: default123"
               deploymentUrl="https://fp-gradebook-f24-team-f24-401.onrender.com"
               github="https://github.com/Lmx154/gradebook" // Add GitHub link
-              labels={['Ruby', 'Ruby on Rails', 'SQL', 'Postgres']}
+              labels={["Ruby", "Ruby on Rails", "SQL", "Postgres"]}
               image="semesterproject.png"
               onImageClick={openModal}
               completion={100} // Add completion percentage
             />
-            {/* Add more project cards as needed */}
+            <ProjectTile
+              title="SENTINEL"
+              description="SENTINEL (System for Environmental Telemetry IN-flight ELectronics) is my current focus as a member of the UTRGV Rocket Launchers telemetry team. Working alongside talented teammates Andrew Alvarez and Ramon Garcia, I'm contributing to the development of this next-generation rocket telemetry system that builds upon the successful prototype I created with TDAS-GUI.
+
+              As a core developer on the project, I've been instrumental in implementing several critical features, including the real-time data visualization components and the event-driven architecture that enables seamless communication between the hardware and software layers. My experience from developing TDAS-GUI has proven invaluable in identifying potential challenges and suggesting architectural improvements that enhance the system's reliability and performance.
+
+              The system provides comprehensive flight monitoring capabilities, including real-time 3D rocket orientation tracking, flight trajectory visualization, and detailed sensor telemetry analysis. These features are crucial for the team's rocket launches, providing essential data for both real-time decision-making and post-flight analysis.
+
+              This collaborative project showcases not only my technical abilities in full-stack development but also my capacity to work effectively in a team environment, contribute to complex architectural decisions, and apply lessons learned from previous projects to create more robust solutions. While TDAS-GUI served as a proof of concept, SENTINEL represents the maturation of those ideas into a production-ready system that will serve the team's needs for years to come."
+              github="https://github.com/andrewalvrz/SENTINEL"
+              labels={["Rust", "Tauri", "Tailwind", "JavaScript", "React"]} // Adjust labels as needed
+              image="sentinel.png"
+              onImageClick={openModal}
+              completion={60} // Adjust completion percentage as needed
+            />
+
+            <ProjectTile
+              title="Chatbot Demo"
+              description="This project demonstrates my exploration into AI-powered documentation assistance, featuring a specialized chatbot designed to help developers understand and navigate complex codebases. Built with Python, the system leverages advanced language models and vector similarity search to provide contextual responses about code and documentation.
+
+              The chatbot implements a sophisticated text processing pipeline that begins with ingesting source code and documentation from a combined text file. Using FAISS (Facebook AI Similarity Search), the system creates efficient vector embeddings of the text, chunked into manageable sections for optimal retrieval. When users submit queries, these are converted into vector embeddings and matched against the indexed content using similarity search to find the most relevant context.
+
+              For response generation, I integrated the Hugging Face API, implementing a careful prompt engineering approach that combines the user's query with retrieved context to generate accurate, contextual responses. The system is designed to be configurable through environment variables, allowing for easy API token management and system customization.
+
+              This project showcases my ability to work with modern AI technologies and create practical developer tools. While addressing limitations such as context window constraints and API rate limits, the chatbot demonstrates effective use of vector databases, embedding models, and large language models for technical documentation assistance."
+              github="https://github.com/Lmx154/chatbot"
+              labels={["Python"]} // Adjust labels as needed
+              image="chatbot.png"
+              onImageClick={openModal}
+              completion={70} // Adjust completion percentage as needed
+            />
           </div>
         </div>
       </div>
 
       {modalImage && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[9999]" onClick={closeModal}>
+        <div
+          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[9999]"
+          onClick={closeModal}
+        >
           <div className="relative w-screen h-screen flex items-center justify-center p-4">
-            <img 
-              src={modalImage} 
+            <img
+              src={modalImage}
               alt="Full size preview"
               className="max-w-[95vw] max-h-[95vh] object-contain"
               onClick={(e) => e.stopPropagation()}
             />
-            <button 
+            <button
               className="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition-colors"
               onClick={closeModal}
             >
