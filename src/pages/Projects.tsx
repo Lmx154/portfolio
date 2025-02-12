@@ -115,7 +115,6 @@ This project exemplifies my ability to lead a team, manage development workflows
               onImageClick={openModal}
               completion={60} // Adjust completion percentage as needed
             />
-
             <ProjectTile
               title="Chatbot Demo"
               description="This project demonstrates my exploration into AI-powered documentation assistance, featuring a specialized chatbot designed to help developers understand and navigate complex codebases. Built with Python, the system leverages advanced language models and vector similarity search to provide contextual responses about code and documentation.
@@ -130,6 +129,15 @@ This project exemplifies my ability to lead a team, manage development workflows
               image="chatbot.png"
               onImageClick={openModal}
               completion={70} // Adjust completion percentage as needed
+            />
+            <ProjectTile
+              title="SARE Clinostat project"
+              description="A modern desktop application for controlling and monitoring clinostat motor RPM. Built with Tauri 2.0 using a Rust backend and React frontend, it offers real-time RPM monitoring, direct motor control, and preset management. An embedded ESP32 bridge enables robust bidirectional communication via ESP-NOW."
+              github="https://github.com/Lmx154/clinostat"
+              labels={["Rust", "Tauri", "Tailwind", "JavaScript", "React"]}
+              image="clinostat.png"
+              onImageClick={openModal}
+              completion={90}
             />
           </div>
         </div>
