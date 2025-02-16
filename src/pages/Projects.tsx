@@ -132,7 +132,13 @@ This project exemplifies my ability to lead a team, manage development workflows
             />
             <ProjectTile
               title="SARE Clinostat project"
-              description="A modern desktop application for controlling and monitoring clinostat motor RPM. Built with Tauri 2.0 using a Rust backend and React frontend, it offers real-time RPM monitoring, direct motor control, and preset management. An embedded ESP32 bridge enables robust bidirectional communication via ESP-NOW."
+              description="Spearheaded the development of a sophisticated clinostat control system as the project lead, demonstrating strong technical leadership and system architecture expertise. I designed the entire system architecture from the ground up, making crucial decisions on protocols and frameworks that would best serve our requirements for precise motor control and real-time monitoring.
+
+The system comprises two main components: a desktop application built with Tauri 2.0 (combining Rust and React) and an innovative ESP32-based communication bridge. I implemented a robust bidirectional communication system between the ESP32 devices using the ESP-NOW protocol, incorporating features such as real-time RPM monitoring, preset management, and automated serial port detection. The system achieves high-precision control through 4Hz data sampling rates and includes sophisticated error handling.
+
+One of my key innovations was developing an intelligent serial port validation system that streamlines device connectivity, significantly improving user experience. I also designed and implemented a comprehensive command and data parsing architecture that enables precise two-way communication, allowing real-time motor speed adjustments through an intuitive GUI interface.
+
+The project showcases my ability to lead complex technical initiatives, architect full-stack solutions, and bridge hardware-software integration challenges. From designing the communication protocols to implementing the user interface, every aspect of this system reflects my commitment to creating robust, user-friendly solutions for real-world scientific applications."
               github="https://github.com/Lmx154/clinostat"
               labels={["Rust", "Tauri", "Tailwind", "JavaScript", "React"]}
               image="clinostat.png"
