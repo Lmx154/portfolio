@@ -1,4 +1,5 @@
 import { memo, useState, useRef, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 interface ProjectTileProps {
   title: string;
@@ -111,9 +112,9 @@ const ProjectTile = memo(({ title, description, deploymentUrl, github, labels, i
       
       <div className="relative flex-grow">
         <div ref={containerRef} className={`${isExpanded ? '' : 'max-h-[6em] overflow-hidden'}`}>
-          <p ref={textRef} className="mb-4">
-            {description}
-          </p>
+          <div ref={textRef} className="mb-4 prose prose-invert prose-sm max-w-none">
+            <ReactMarkdown>{description}</ReactMarkdown>
+          </div>
         </div>
         {shouldShowMore && (
           <button
