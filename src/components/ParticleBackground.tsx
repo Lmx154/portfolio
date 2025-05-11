@@ -25,14 +25,11 @@ export default function ParticleBackground() {
             onClick: {
               enable: false,
               mode: "push",
-            },
-            onHover: {
-              enable: true,
+            },            onHover: {
+              enable: false, // Disabled mouse hover interaction
               mode: "repulse",
               parallax: {
-                enable: true,
-                force: 10,
-                smooth: 10
+                enable: false
               }
             },
             resize: true,
@@ -40,52 +37,60 @@ export default function ParticleBackground() {
           modes: {
             push: {
               quantity: 4,
-            },
-            repulse: {
-              distance: 100,
-              duration: 0.4,
+            },            repulse: {
+              distance: 75,
+              duration: 0.6,
+              speed: 0.3,
             },
           },
         },
       particles: {
           color: {
             value: "#ffffff",
-          },
-          links: {
+          },          shadow: {
+            enable: true,
+            color: "#ffffff",
+            blur: 2, // Reduced blur for smaller bright center
+            offset: {
+              x: 0,
+              y: 0
+            }
+          },links: {
             color: "#ffffff",
             distance: 150,
-            enable: true,
-            opacity: 0.15,
-            width: 1,
-          },
-          move: {
+            enable: false, // Disabled links between particles
+            opacity: 0.08,
+            width: 0.5,
+          },          move: {
             direction: "none",
             enable: true,
             outModes: {
-              default: "bounce",
+              default: "out",
             },
-            random: false,
-            speed: 0.5,
-            straight: false,
-          },          number: {
+            random: true,
+            speed: 0.1, // Even slower movement
+            straight: false,          },number: {
             density: {
               enable: true,
-              area: 1200,
+              area: 800, // Further decreased area to increase density
             },
-            value: 60, // Reduced number of particles
-          },
-          opacity: {
-            value: 0.25,
-          },
-          shape: {
-            type: "polygon",
-            polygon: {
-              sides: 4,
-              position: "centered"
+            value: 300, // Doubled the number of particles for an even denser starfield
+          },opacity: {
+            value: 0.8, // Slightly increased opacity for brighter stars
+            random: true, // Random opacity for more natural look
+            animation: {
+              enable: true, // Enable opacity animation for twinkling effect
+              speed: 0.2,
+              minimumValue: 0.1,
+              sync: false
             }
           },
+          shape: {
+            type: "circle",
+          },
           size: {
-            value: { min: 1, max: 5 },
+            value: { min: 0.5, max: 2 }, // Smaller particles for more realistic stars
+            random: true, // Random sizes for variety
           },
         },
         detectRetina: true,
