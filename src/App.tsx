@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useTrail, animated } from '@react-spring/web';
 import './index.css';
 
-import SVGBackground from './components/SVGBackground';
+import ParticleBackground from './components/ParticleBackground';
 // Direct imports instead of lazy loading
 import Home from './pages/Home';
 import Projects from './pages/Projects';
@@ -133,11 +133,10 @@ function App() {
     };
     return colorMap[currentSection as keyof typeof colorMap] || colorMap.home;
   };
-
   return (
     <div className="relative min-h-screen w-full">
       <div className="fixed inset-0 w-full h-full">
-        <SVGBackground />
+        <ParticleBackground />
       </div>
 
       <nav className="fixed top-4 left-4 z-50">
