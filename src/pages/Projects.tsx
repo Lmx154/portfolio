@@ -191,39 +191,25 @@ Next-generation rocket telemetry system for UTRGV Rocket Launchers, building on 
               image="sentinel.png"
               onImageClick={openModal}
               completion={60}
-            />
-
-            <ProjectTile
+            />            <ProjectTile
               title="AI Assistant"
               description={`
 
-Developed a production-ready AI chatbot showcasing modern full-stack development expertise and API integration capabilities.
+Experimental project exploring the capabilities of the OpenAI API through a simple chatbot interface.
 
 ## Key Technical Achievements
 
-* **Frontend Development**
-  * Built responsive UI with Next.js and TypeScript
-  * Rapid prototyping using V0 by Vercel
-  * Created reusable components with Radix UI and Tailwind CSS
-
-* **Backend Architecture**
-  * Implemented scalable FastAPI/Python backend
-  * Designed robust API architecture with Pydantic
-  * Integrated OpenAI SDK efficiently
-
-* **Engineering Best Practices**
-  * Implemented comprehensive error handling
-  * Utilized TypeScript for type safety
-  * Secured API keys with environment variables
-  * Followed modern state management patterns
+* Built a functional chatbot UI with Next.js and TypeScript
+* Implemented API integration with OpenAI's language models
+* Experimented with prompt engineering techniques
+* Created a basic frontend-backend communication flow
 
 ## Impact & Skills Demonstrated
 
-* Initiative in learning and applying new technologies
-* Ability to deliver production-quality code
-* Strong understanding of modern web development
-* Practical experience with API integration
-* Focus on user experience and clean architecture
+* Gained practical experience with AI API integration
+* Explored the potential and limitations of large language models
+* Enhanced understanding of modern web development patterns
+* Developed foundation for future AI-powered projects
 `}
               labels={[
                 "Next.js",
@@ -237,9 +223,7 @@ Developed a production-ready AI chatbot showcasing modern full-stack development
               image="ai-assistant.png"
               onImageClick={openModal}
               completion={100}
-            />
-
-            <ProjectTile
+            />            <ProjectTile
               title="Chatbot Demo"
               description={`
 
@@ -262,6 +246,53 @@ Exploration into AI-powered documentation assistance, featuring a specialized ch
               image="chatbot.png"
               onImageClick={openModal}
               completion={100}
+            />            <ProjectTile
+              title="B.R.U.N.O"
+              description={`
+
+Developed a comprehensive multi-board flight computer system and ground station for advanced rocketry telemetry applications.
+
+## Key Technical Achievements
+
+* Implemented a dual-board architecture with NAVC for sensor data collection and FC for telemetry transmission
+* Integrated multiple sensors including IMU, barometer, magnetometer, GPS, and RTC for comprehensive flight data
+* Engineered real-time communication protocols between flight computer and ground station using LoRa radio
+* Developed automatic parachute deployment system based on altimeter readings
+
+## Impact & Skills Demonstrated
+
+* Applied embedded systems programming in a mission-critical aerospace context
+* Designed reliable telemetry systems for high-speed, high-altitude applications
+* Leveraged hardware-software integration skills across multiple microcontrollers
+* Created systems compatible with advanced visualization software for real-time monitoring
+`}
+              labels={["C++", "Embedded"]}
+              image="/brunito.jpg"
+              onImageClick={openModal}
+              completion={60}
+            />            <ProjectTile
+              title="Applytron"
+              description={`
+Applytron is a browser extension that allows a user to autofill an online job application by extracting its forms/fields then using AI to fill them in with the user's resume information.
+
+## Key Technical Achievements
+
+* Developed a browser extension to automate the job application process
+* Implemented form field detection and extraction algorithms
+* Integrated AI capabilities to match resume data with appropriate application fields
+* Created a user-friendly interface for managing resume information
+
+## Impact & Skills Demonstrated
+
+* Streamlined the job application process, saving users significant time
+* Applied machine learning techniques to solve a common real-world problem
+* Demonstrated expertise in browser extension development and web scraping
+* Showcased ability to integrate AI services with front-end technologies
+`}
+              labels={["AI", "JavaScript"]}
+              image="/applytron.png"
+              onImageClick={openModal}
+              completion={90}
             />
 
             <ProjectTile

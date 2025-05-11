@@ -89,16 +89,30 @@ const About: React.FC = () => {
                 }
                 downloadUrl="/resume.pdf"
                 downloadLabel="Download Resume"
-              />
-            </div>
-          </div>
-          <div className="space-y-8 landscape:flex landscape:flex-col">
-            <div className="landscape:flex-shrink-0">
+              />            </div>
+            <div className="mt-8">
               <PictureTile 
                 title="Frontera Hacks 2024" 
-                description=" "
+                description="Team picture at Frontera Hackathon 2024"
                 image="/fronterahacks2024.JPG"
               />
+            </div>
+          </div>          <div className="space-y-8 landscape:flex landscape:flex-col">
+            <div className="grid grid-cols-1 gap-8">
+              <div className="landscape:flex-shrink-0">
+                <PictureTile 
+                  title="Lonestar Rocketry 2025" 
+                  description="Team picture at Lonestar Rocketry 2025 competition"
+                  image="/lonestar2025.jpg"
+                />
+              </div>
+              <div className="landscape:flex-shrink-0">
+                <PictureTile 
+                  title="SpaceX Starbase Tour 2025" 
+                  description="Team picture at SpaceX Starbase"
+                  image="/starbase.jpg"
+                />
+              </div>
             </div>
           </div>
         </div>

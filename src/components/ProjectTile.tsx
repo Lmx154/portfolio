@@ -12,8 +12,7 @@ interface ProjectTileProps {
   completion: number; // Add completion percentage
 }
 
-const getLabelColors = (label: string) => {
-  const colorMap: { [key: string]: { bg: string; text: string; border: string } } = {
+const getLabelColors = (label: string) => {  const colorMap: { [key: string]: { bg: string; text: string; border: string } } = {
     'React': { bg: 'bg-cyan-500/20', text: 'text-cyan-300', border: 'border-cyan-500/30' },
     'JavaScript': { bg: 'bg-yellow-500/20', text: 'text-yellow-300', border: 'border-yellow-500/30' },
     'TypeScript': { bg: 'bg-blue-500/20', text: 'text-blue-300', border: 'border-blue-500/30' },
@@ -22,6 +21,7 @@ const getLabelColors = (label: string) => {
     'Tailwind': { bg: 'bg-cyan-500/20', text: 'text-cyan-300', border: 'border-cyan-500/30' },
     'Node.js': { bg: 'bg-emerald-500/20', text: 'text-emerald-300', border: 'border-emerald-500/30' },
     'C#': { bg: 'bg-fuchsia-500/20', text: 'text-fuchsia-300', border: 'border-fuchsia-500/30' },
+    'AI': { bg: 'bg-violet-500/20', text: 'text-violet-300', border: 'border-violet-500/30' },
     'ASP.NET': { bg: 'bg-purple-500/20', text: 'text-purple-300', border: 'border-purple-500/30' },
     'Postgres': { bg: 'bg-blue-500/20', text: 'text-blue-300', border: 'border-blue-500/30' },
     'SQL': { bg: 'bg-green-500/20', text: 'text-green-300', border: 'border-green-500/30' },
